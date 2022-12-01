@@ -1,5 +1,5 @@
 #projeto realizado por Vitor Daniel e João Carvalho
-
+from collections import defaultdict
 #objetivo alcançar 100k em lucros
 
 #classes para cada item:
@@ -99,6 +99,12 @@ Resources = {
     "gold" : 1500
     
 }
+ResourcesPrice = {
+    "wood" : 1,
+    "iron" : 4,
+    "leather" : 2
+    
+}
 
 Recipes= {
 
@@ -134,10 +140,12 @@ Recipes= {
 
 
 }
+
+        
 Level=0
 day=1
 print("Day "+str(day))
-print("Day "+str(Level))
+print("Level "+str(Level))
 print("Money: "+str(Resources["gold"]))
 print("Total Recipes: "+str(TotalReceitas))
 print("Wood: "+str(Resources["wood"]))
@@ -146,10 +154,32 @@ print("Leather: "+str(Resources["leather"]))
 
 
 def buyresources():
-    aux=True
+    
     print("Buy Resources")
-   
-        
+    aux=True
+    while aux:
+        n1=input("Do you wish to buy Wood(1),Leather(2), Iron(3) Or leave(4)?")
+        if n1=="1":
+            n2=input("How much Wood do you wish to buy? ")
+            n2=n2*int(ResourcesPrice["wood"])
+            print("Total paid: "+str(n2))
+
+        elif n1=="2":
+            n2=input("How much Leather do you wish to buy? ")
+            ResourcesPrice=defaultdict(int)
+           # for value in ResourcesPrice:
+            ResourcesPrice["leather"] *= n2
+                #n4=n2*ResourcesPrice[value]
+            print("Total paid: "+str(ResourcesPrice["leather"]))
+            
+        elif n1=="3":   
+            n2=input("How much Iron do you wish to buy? ")
+            n2=n2*ResourcesPrice["iron"]
+            print("Total paid: "+str(n2))
+        elif n1=="4":
+            aux=False
+    
+buyresources()
      
 
 
