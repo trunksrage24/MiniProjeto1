@@ -29,21 +29,30 @@ avançado - 5000
 
     armor:
         body armor:
-    iniciante - 350
-    intermedio - 850
-    avançado - 1500
+    iniciante - 650
+    intermedio - 1850
+    avançado - 2500
         helmet:
     iniciante - 300
     intermedio - 700
+    avançado - 1300
+        leggings:
+    iniciante - 350
+    intermedio - 750
+    avançado - 1400
+
         shoes:
     iniciantes - 200
     intermedio - 600
-        
+    avançado - 1300
+
     bows:
+iniciante - 1250
 intermedio - 3000
 avançado - 6000
-arrows - 25 each ou sets com 30 por 625 gold
+arrows - 30 por 2250 gold
 
+"
     cloak:
 basic cloak - 5000
 
@@ -51,4 +60,4 @@ basic cloak - 5000
 red - 10000
 green - 10000
 blue - 10000
-
+"
