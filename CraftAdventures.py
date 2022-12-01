@@ -99,6 +99,7 @@ Resources = {
     "gold" : 1500
     
 }
+
 Recipes= {
 
     "SwordIni" : "You need: 1 wood",
@@ -144,9 +145,12 @@ print("Iron: "+str(Resources["wood"]))
 print("Leather: "+str(Resources["leather"]))
 
 
-def buyrecursos():
-    print("Buy recipes")
-
+def buyresources():
+    aux=True
+    print("Buy Resources")
+   
+        
+     
 
 
 
