@@ -99,6 +99,7 @@ Resources = {
     "gold" : 1500
     
 }
+
 Recipes= {
 
     "SwordIni" : "You need: 1 wood",
