@@ -66,6 +66,7 @@ class EnergyShield(Shields):
     pass
 
 class BodyArmor(Armors):
+    pass
 
 #armadura corpo iniciante
 class LightArmor(BodyArmor):
@@ -89,3 +90,65 @@ class LeatherHelmet(Helmet):
 #helmet intermédio
 class HeavyHelmet(Helmet):
     pass
+
+TotalReceitas=0
+Resources = {
+    "wood" : 5,
+    "iron" : 5,
+    "leather" : 5,
+    "gold" : 1500
+    
+}
+Recipes= {
+
+    "SwordIni" : "You need: 1 wood",
+    "SwordInter" : "You need: 1 wood and 1 leather",
+    "SwordAdva" : "You need: 2 wood and 3 iron",
+
+    "ShieldIni" : "You need: 1 wood",
+    "ShieldInter" : "You need: 1 wood and 1 leather",
+    "ShieldAdva" : "You need: 2 wood and 3 iron",
+
+    "HelmetIni" : "You need: 1 leather",
+    "HelmetInter" : "You need: 1 iron and 1 leather",
+    "HelmetAdva" : "You need: 3 iron",
+
+    "ChestplatelIni" : "You need: 1 leather",
+    "ChestplateInter" : "You need: 2 iron and 2 leather",
+    "ChestplateAdva" : "You need: 4 iron and 3 leather",
+    
+    "LegginsIni" : "You need: 2 leather",
+    "LegginsInter" : "You need: 2 iron and 2 leather",
+    "LegginsAdva" : "You need: 3 iron and 3 leather",
+
+    "ShoesIni" : "You need: 1 leather",
+    "ShoesInter" : "You need: 1 iron and 2 leather",
+    "ShoesAdva" : "You need: 3 iron and 2 leather",
+
+    "BowIni" : "You need: 1 wood and 1 leather",
+    "BowInter" : "You need: 2 wood and 1 iron and 1 leather",
+    "BowAdva" : "You need: 3 iron and 1 leather",
+    
+    "Arrows" : "You need: 3 wood and 1 iron"
+
+
+}
+Level=0
+day=1
+print("Day "+str(day))
+print("Day "+str(Level))
+print("Money: "+str(Resources["gold"]))
+print("Total Recipes: "+str(TotalReceitas))
+print("Wood: "+str(Resources["wood"]))
+print("Iron: "+str(Resources["wood"]))
+print("Leather: "+str(Resources["leather"]))
+
+
+def buyrecursos():
+    print("Buy recipes")
+
+
+
+
+
+
