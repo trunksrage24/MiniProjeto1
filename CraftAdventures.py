@@ -1,5 +1,7 @@
 #projeto realizado por Vitor Daniel e João Carvalho
-from collections import defaultdict
+  #import colorama
+  #from colorama import Fore
+import random  
 #objetivo alcançar 100k em lucros
 
 #classes para cada item:
@@ -91,98 +93,111 @@ class LeatherHelmet(Helmet):
 class HeavyHelmet(Helmet):
     pass
 
-TotalReceitas=0
+
 Resources = {
     "wood" : 5,
     "iron" : 5,
     "leather" : 5,
-    "gold" : 1500
+    "gold" : 0
     
 }
 ResourcesPrice = {
-    "wood" : 1,
-    "iron" : 4,
-    "leather" : 2
-    
+    "wood" : 25,
+    "leather" : 35,
+    "iron" : 90,
+    "gold" : 180
 }
 
 Recipes= {
+    #Em comentario estão os preços totais do item em questão(ex:1wood->25$ + 1 leather->35$=60$)
+    "SwordIni" : "You need: 1 wood and 1 leather.", #60
+    "SwordInter" : "You need: 1 wood, 2 leathers and 3 irons.", #365 
+    "SwordAdva" : "You need: 4 irons and 2 golds,", #720
 
-    "SwordIni" : "You need: 1 wood",
-    "SwordInter" : "You need: 1 wood and 1 leather",
-    "SwordAdva" : "You need: 2 wood and 3 iron",
+    "ShieldIni" : "You need: 1 wood and 1 leather.", #60
+    "ShieldInter" : "You need: 1 wood, 2 leathers and 2 irons.", #275
+    "ShieldAdva" : "You need: 2 leather, 3 irons and 1 gold.", #520
 
-    "ShieldIni" : "You need: 1 wood",
-    "ShieldInter" : "You need: 1 wood and 1 leather",
-    "ShieldAdva" : "You need: 2 wood and 3 iron",
+    "HelmetIni" : "You need: 1 leather and 1 iron.", #125
+    "HelmetInter" : "You need: 2 leathers and 3 irons.", #340
+    "HelmetAdva" : "You need: 3 leathers, 3 irons and 2 golds.", #1 095
 
-    "HelmetIni" : "You need: 1 leather",
-    "HelmetInter" : "You need: 1 iron and 1 leather",
-    "HelmetAdva" : "You need: 3 iron",
-
-    "ChestplatelIni" : "You need: 1 leather",
-    "ChestplateInter" : "You need: 2 iron and 2 leather",
-    "ChestplateAdva" : "You need: 4 iron and 3 leather",
+    "ChestplatelIni" : "You need: 2 leather and 1 iron.", #160
+    "ChestplateInter" : "You need: 3 leathers and 2 irons.", #285
+    "ChestplateAdva" : "You need: 4 leathers, 3 irons and 4 golds.", #1 130
     
-    "LegginsIni" : "You need: 2 leather",
-    "LegginsInter" : "You need: 2 iron and 2 leather",
-    "LegginsAdva" : "You need: 3 iron and 3 leather",
+    "LegginsIni" : "You need: 2 leather and 1 iron.", #190
+    "LegginsInter" : "You need: 3 leathers and 3 irons.", #375
+    "LegginsAdva" : "You need: 4 leathers, 2 irons and 3 golds.", #860
 
-    "ShoesIni" : "You need: 1 leather",
-    "ShoesInter" : "You need: 1 iron and 2 leather",
-    "ShoesAdva" : "You need: 3 iron and 2 leather",
+    "ShoesIni" : "You need: 1 leather and 1 iron.", #125
+    "ShoesInter" : "You need: 2 leathers and 2 irons.", #250
+    "ShoesAdva" : "You need: 3 leathers, 3 irons and 1 gold.", #555
 
-    "BowIni" : "You need: 1 wood and 1 leather",
-    "BowInter" : "You need: 2 wood and 1 iron and 1 leather",
-    "BowAdva" : "You need: 3 iron and 1 leather",
+    "BowIni" : "You need: 1 wood and 1 leather.", #60
+    "BowInter" : "You need: 2 wood,1 leather and 2 iron.", #265
+    "BowAdva" : "You need: 1 leather and 3 irons and 2 golds.", #665
     
-    "Arrows" : "You need: 3 wood and 1 iron"
+    "Arrows" : "You need: 3 wood and 1 iron" # 165
 
 
 }
 
-        
-Level=0
+TotalReceitas=0        
+Level=1
+money=1500
 day=1
+SuccessRating=5
 print("Day "+str(day))
 print("Level "+str(Level))
-print("Money: "+str(Resources["gold"]))
+print("Money: "+str(money))
 print("Total Recipes: "+str(TotalReceitas))
 print("Wood: "+str(Resources["wood"]))
-print("Iron: "+str(Resources["wood"]))
 print("Leather: "+str(Resources["leather"]))
+print("Iron: "+str(Resources["iron"]))
+print("gold: "+str(Resources["gold"]))
 
-
-def buyresources():
+def buyresourcesAndRecipies():
     
-    print("Buy Resources")
+    print("Buy Resources/Recipes")
     aux=True
     while aux:
-        n1=input("Do you wish to buy Wood(1),Leather(2), Iron(3) Or leave(4)?")
+        n1=input("Do you wish to buy Wood(1) for "+str(ResourcesPrice["wood"])+"$,Leather(2)"+str(ResourcesPrice["leather"])+"$, Iron(3)"+str(ResourcesPrice["iron"])+"$, Gold(4)"+str(ResourcesPrice["gold"])+"$,Recipes(5) or leave(6)? ")
         if n1=="1":
-            n2=input("How much Wood do you wish to buy? ")
+            n2=int(input("How much Wood do you wish to buy for "+str(ResourcesPrice["wood"])+"$? "))
             n2=n2*int(ResourcesPrice["wood"])
             print("Total paid: "+str(n2))
 
         elif n1=="2":
-            n2=input("How much Leather do you wish to buy? ")
-            ResourcesPrice=defaultdict(int)
-           # for value in ResourcesPrice:
-            ResourcesPrice["leather"] *= n2
-                #n4=n2*ResourcesPrice[value]
-            print("Total paid: "+str(ResourcesPrice["leather"]))
+            n2=int(input("How much Leather do you wish to buy for "+str(ResourcesPrice["leather"])+"$? "))
+            n2=n2*int(ResourcesPrice["leather"])
+            print("Total paid: "+str(n2))
             
         elif n1=="3":   
-            n2=input("How much Iron do you wish to buy? ")
+            n2=int(input("How much Iron do you wish to buy for "+str(ResourcesPrice["iron"])+"$? "))
             n2=n2*ResourcesPrice["iron"]
             print("Total paid: "+str(n2))
-        elif n1=="4":
+        elif n1=="4":   
+            n2=int(input("How much Gold do you wish to buy for "+str(ResourcesPrice["gold"])+"$? "))
+            n2=n2*ResourcesPrice["gold"]
+            print("Total paid: "+str(n2))
+        elif n1=="5":
+            print("Here recipes") 
+            #puxar recipes aqui   
+        elif n1=="6":
             aux=False
-    
-buyresources()
-     
+buyresourcesAndRecipies()
 
+def crafting():
+    print("Crafting Time!!")
+    randnum=random.randint(1,10)
+    craftingattempt=Level*randnum
+    if craftingattempt >= SuccessRating:
+        print("Done and Done!!! "+str(craftingattempt))
+        #remover os items do inventario
+        #dar exp ao jogador
+    elif craftingattempt < SuccessRating:  
+        print("Not Done! "+str(craftingattempt)) 
+        #remover os items do inventario
 
-
-
-
+crafting()
