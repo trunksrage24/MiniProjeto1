@@ -14,98 +14,277 @@ import random
 #cada item pode ser encantado com gems, cada cor gera um efeito em cada item: red attack, green defense e blue speed/invisibility.
 
 class Item:
-    pass
-
+    def __init__(self, name, gold):
+        self.name = name
+        self.gold = gold
+    
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
 class Swords(Item):
     #pelo menos 4 espadas diferentes, 1 iniciante, 1 intermédia e 2 avançadas
-    pass
+    def __init__(self):
+        super().__init__("Sword", 0)
+    
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+
+#espada avançada
+class SwordAdva(Swords):
+    def __init__(self):
+        super().__init__("SwordAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#espada intermédia
+class SwordInter(Swords):
+    def __init__(self):
+        super().__init__("SwordInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#espada iniciante
+class SwordIni(Swords):
+    def __init__(self):
+        super().__init__("SwordIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
 
 class Shields(Item):
     #pelo menos 3 shields, begginer, intermediate e advanced
-    pass
+    def __init__(self):
+        super().__init__("Shield", 0)
 
-class Armors(Item):
-    # 2 tipos de helmet e 3 tipos body armor
-    pass
-
-class Gem(Item):
-    #valores random por gem ou diferenciadas por classes de cor (red, green and blue)
-    pass
-
-class Cloaks(Item):
-    #um manto com habilidades mágicas, fazer uso das gems para cada efeito
-    #red - boost attack for swords
-    #green - boost defense for shields
-    #blue - become invisible
-    pass
-
-#espada avançada
-class LightSaber(Swords):
-    pass
-
-#espada avançada
-class DualHandedSword(Swords):
-    pass
-
-#espada intermédia
-class Katana(Swords):
-    pass
-
-#espada iniciante
-class WoodenSword(Swords):
-    pass
-
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+        
 #escudo iniciante
-class RoundShield(Shields):
-    pass
+class ShieldIni(Shields):
+    def __init__(self):
+        super().__init__("ShieldIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
 
 #escudo intermedio
-class HeavyShield(Shields):
-    pass
+class ShieldInter(Shields):
+    def __init__(self):
+        super().__init__("ShieldInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
 
 #escudo avançado
-class EnergyShield(Shields):
-    pass
+class ShieldAdva(Shields):
+    def __init__(self):
+        super().__init__("ShieldAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
 
-class BodyArmor(Armors):
-    pass
+class Armors(Item):
+    # 3 helmets, 3 chestplates, 3 leggings e 3 shoes
+    def __init__(self):
+        super().__init__("Armors", 0)
 
-#armadura corpo iniciante
-class LightArmor(BodyArmor):
-    pass
-
-#armadura corpo intermédia
-class HeavyArmor(BodyArmor):
-    pass
-
-#armadura corpo avançada
-class FullBodyArmor(BodyArmor):
-    pass
-
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+        
 class Helmet(Armors):
-    pass
+    def __init__(self):
+        super().__init__("Helmet", 0)
 
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+        
 #helmet iniciante
-class LeatherHelmet(Helmet):
-    pass
+class HelmetIni(Helmet):
+    def __init__(self):
+        super().__init__("HelmetIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
 
 #helmet intermédio
-class HeavyHelmet(Helmet):
-    pass
+class HelmetInter(Helmet):
+    def __init__(self):
+        super().__init__("HelmetInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#helmet avançado
+class HelmetAdva(Helmet):
+    def __init__(self):
+        super().__init__("HelmetAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+class BodyArmor(Armors):
+    def __init__(self):
+        super().__init__("BodyArmor", 0)
+
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+        
+#armadura corpo iniciante
+class ChestplatelIni(BodyArmor):
+    def __init__(self):
+        super().__init__("ChestplatelIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#armadura corpo intermédia
+class ChestplateInter(BodyArmor):
+    def __init__(self):
+        super().__init__("ChestplateInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#armadura corpo avançada
+class ChestplateAdva(BodyArmor):
+    def __init__(self):
+        super().__init__("ChestplateAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+class Leggins(Armors):
+    def __init__(self):
+        super().__init__("Leggins", 0)
+
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+        
+#leggins iniciante
+class LegginsIni(Leggins):
+    def __init__(self):
+        super().__init__("LegginsIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#leggins intermedio
+class LegginsInter(Leggins):
+    def __init__(self):
+        super().__init__("LegginsInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#leggins avançado
+class LegginsAdva(Leggins):
+    def __init__(self):
+        super().__init__("LegginsAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+class Shoes(Armors):
+    def __init__(self):
+        super().__init__("Shoes", 0)
+
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+
+#shoes iniciante
+class ShoesIni(Shoes):
+    def __init__(self):
+        super().__init__("ShoesIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+
+#shoes intermedio
+class ShoesInter(Shoes):
+    def __init__(self):
+        super().__init__("ShoesInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#shoes avançado
+class ShoesAdva(Shoes):
+    def __init__(self):
+        super().__init__("ShoesAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+class Bow(Item):
+    def __init__(self):
+        super().__init__("Bow", 0)
+
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+
+#bow iniciante
+class BowIni(Bow):
+    def __init__(self):
+        super().__init__("BowIni", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#bow intermedio
+class BowInter(Bow):
+    def __init__(self):
+        super().__init__("BowInter", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#bow avançado
+class BowAdva(Bow):
+    def __init__(self):
+        super().__init__("BowAdva", 10000)
+        print(self.name + str(self.gold))
+    def Display(self):
+        return super().Display()
+
+#arrows
+class Arrows(Item):
+    def __init__(self):
+        super().__init__("Bow", 0)
+
+    def Display(self):
+        print("Name" + self.name)
+        print("Sell Value" + self.gold)
+
+InventoryToSell = [SwordIni, SwordInter, SwordAdva, ShieldIni, ShieldInter, ShieldAdva, ChestplatelIni, 
+                    ChestplateInter, ChestplateAdva, HelmetIni, HelmetInter, HelmetAdva, LegginsIni, LegginsInter, 
+                    LegginsAdva, ShoesIni, ShoesInter, ShoesAdva, BowIni, BowInter, BowAdva, Arrows]
+
 
 
 Resources = {
     "wood" : 5,
-    "iron" : 5,
     "leather" : 5,
-    "gold" : 0
-    
+    "iron" : 5,
+    "gold" : 0  
 }
+
 ResourcesPrice = {
     "wood" : 25,
     "leather" : 35,
     "iron" : 90,
     "gold" : 180
+
 }
 
 Recipes= {
@@ -157,7 +336,7 @@ print("Leather: "+str(Resources["leather"]))
 print("Iron: "+str(Resources["iron"]))
 print("gold: "+str(Resources["gold"]))
 
-def buyresourcesAndRecipies():
+def buyresourcesAndRecipes():
     
     print("Buy Resources/Recipes")
     aux=True
@@ -186,7 +365,7 @@ def buyresourcesAndRecipies():
             #puxar recipes aqui   
         elif n1=="6":
             aux=False
-buyresourcesAndRecipies()
+buyresourcesAndRecipes()
 
 def crafting():
     print("Crafting Time!!")
