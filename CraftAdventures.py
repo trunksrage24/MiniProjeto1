@@ -21,6 +21,13 @@ class Item:
     def Display(self):
         print("Name" + self.name)
         print("Sell Value" + self.gold)
+
+class Player:
+    name=""
+    totalgold=5000
+    exp=0
+    level=1
+
 class Swords(Item):
     #3 espadas
     def __init__(self):
@@ -318,46 +325,78 @@ Recipes= {
 }
 
 TotalReceitas=0        
-Level=1
-money=1500
+
 day=1
 SuccessRating=5
 
 print("Day "+str(day))
-print("Level "+str(Level))
-print("Money: "+str(money))
+print("Level "+str(Player.level))
+print("EXP "+str(Player.exp))
+print("Money: "+str(Player.totalgold))
 print("Total Recipes: "+str(TotalReceitas))
-print("Wood: "+str(Resources["wood"]))
-print("Leather: "+str(Resources["leather"]))
-print("Iron: "+str(Resources["iron"]))
-print("gold: "+str(Resources["gold"]))
 
 def BuyResourceRecipes():
     print("Buy Resources/Recipes")
     aux=True
     while aux:
+        print("Wood: "+str(Resources["wood"]))
+        print("Leather: "+str(Resources["leather"]))
+        print("Iron: "+str(Resources["iron"]))
+        print("gold: "+str(Resources["gold"]))
         n1=input("Do you wish to buy Wood(1) for "+str(ResourcesPrice["wood"])+"$,Leather(2)"+str(ResourcesPrice["leather"])+"$, Iron(3)"+str(ResourcesPrice["iron"])+"$, Gold(4)"+str(ResourcesPrice["gold"])+"$,Recipes(5) or leave(6)? ")
         if n1=="1":
-            n2=int(input("How much Wood do you wish to buy for "+str(ResourcesPrice["wood"])+"$? "))
-            n2=n2*int(ResourcesPrice["wood"])
-            print("Total paid: "+str(n2))
+            ResourcesAmount=int(input("How much Wood do you wish to buy for "+str(ResourcesPrice["wood"])+"$? "))   
+            ResourcesQuantity=ResourcesAmount
+            ResourcesAmount=ResourcesAmount*int(ResourcesPrice["wood"])
+            if Player.totalgold>=ResourcesAmount:
+                    print("Total paid: "+str(ResourcesAmount))
+                    Player.totalgold=Player.totalgold-ResourcesAmount
+                    print("Current Gold:"+str(Player.totalgold))
+                    Resources["wood"]=Resources["wood"]+ResourcesQuantity
+            elif Player.totalgold<ResourcesAmount:
+                    print("You dont have enought gold to buy this product!")
+
 
         elif n1=="2":
-            n2=int(input("How much Leather do you wish to buy for "+str(ResourcesPrice["leather"])+"$? "))
-            n2=n2*int(ResourcesPrice["leather"])
-            print("Total paid: "+str(n2))
+            ResourcesAmount=int(input("How much Leather do you wish to buy for "+str(ResourcesPrice["leather"])+"$? "))
+            ResourcesQuantity=ResourcesAmount
+            ResourcesAmount=ResourcesAmount*int(ResourcesPrice["leather"])
+            if Player.totalgold>=ResourcesAmount:
+                print("Total paid: "+str(ResourcesAmount))
+                Player.totalgold=Player.totalgold-ResourcesAmount
+                print("Current Gold:"+str(Player.totalgold))
+                Resources["leather"]=Resources["leather"]+ResourcesQuantity
+            elif Player.totalgold<ResourcesAmount:
+                    print("You dont have enought gold to buy this product!")    
             
         elif n1=="3":   
-            n2=int(input("How much Iron do you wish to buy for "+str(ResourcesPrice["iron"])+"$? "))
-            n2=n2*ResourcesPrice["iron"]
-            print("Total paid: "+str(n2))
+            ResourcesAmount=int(input("How much Iron do you wish to buy for "+str(ResourcesPrice["iron"])+"$? "))
+            ResourcesQuantity=ResourcesAmount
+            ResourcesAmount=ResourcesAmount*ResourcesPrice["iron"]
+            if Player.totalgold>=ResourcesAmount:
+                print("Total paid: "+str(ResourcesAmount))
+                Player.totalgold=Player.totalgold-ResourcesAmount
+                print("Current Gold:"+str(Player.totalgold))
+                Resources["iron"]=Resources["iron"]+ResourcesQuantity
+            elif Player.totalgold<ResourcesAmount:
+                    print("You dont have enought gold to buy this product!")    
+
         elif n1=="4":   
-            n2=int(input("How much Gold do you wish to buy for "+str(ResourcesPrice["gold"])+"$? "))
-            n2=n2*ResourcesPrice["gold"]
-            print("Total paid: "+str(n2))
+            ResourcesAmount=int(input("How much Gold do you wish to buy for "+str(ResourcesPrice["gold"])+"$? "))
+            ResourcesQuantity=ResourcesAmount
+            ResourcesAmount=ResourcesAmount*ResourcesPrice["gold"]
+            if Player.totalgold>=ResourcesAmount:
+                print("Total paid: "+str(ResourcesAmount))
+                Player.totalgold=Player.totalgold-ResourcesAmount
+                print("Current Gold:"+str(Player.totalgold))
+                Resources["gold"]=Resources["gold"]+ResourcesQuantity
+            elif Player.totalgold<ResourcesAmount:
+                    print("You dont have enought gold to buy this product!")    
+
         elif n1=="5":
             print("Here recipes") 
             #puxar recipes aqui   
+
         elif n1=="6":
             aux = False
 
@@ -377,7 +416,7 @@ def CraftingItems():
             if answer == "1":
                 Option = [InventoryToSell[0], InventoryToSell[1], InventoryToSell[2]]
                 
-                craftingattempt=Level*Option
+                craftingattempt=Player.Player.level*Option
                 if craftingattempt >= SuccessRating:
                     print("Done and Done!!! "+str(craftingattempt))
                     #remover os items do inventario
@@ -389,7 +428,7 @@ def CraftingItems():
             
             elif answer == "2":
                 Option = [InventoryToSell[3], InventoryToSell[4], InventoryToSell[5]]
-                craftingattempt=Level*randOption
+                craftingattempt=Player.level*Option
                 if craftingattempt >= SuccessRating:
                     print("Done and Done!!! "+str(craftingattempt))
                     #remover os items do inventario
@@ -409,7 +448,7 @@ def CraftingItems():
                 else:
                     if answer2 == "1":
                         Option = [InventoryToSell[6], InventoryToSell[7], InventoryToSell[8]]
-                        craftingattempt=Level*Option
+                        craftingattempt=Player.level*Option
                         if craftingattempt >= SuccessRating:
                             print("Done and Done!!! "+str(craftingattempt))
                             #remover os items do inventario
@@ -421,7 +460,7 @@ def CraftingItems():
 
                     elif answer2 == "2":
                         Option = [InventoryToSell[9], InventoryToSell[10], InventoryToSell[11]]
-                        craftingattempt=Level*Option
+                        craftingattempt=Player.level*Option
                         if craftingattempt >= SuccessRating:
                             print("Done and Done!!! "+str(craftingattempt))
                             #remover os items do inventario
@@ -433,7 +472,7 @@ def CraftingItems():
 
                     elif answer2 == "3":
                         Option = [InventoryToSell[12], InventoryToSell[13], InventoryToSell[14]]
-                        craftingattempt=Level*Option
+                        craftingattempt=Player.level*Option
                         if craftingattempt >= SuccessRating:
                             print("Done and Done!!! "+str(craftingattempt))
                             #remover os items do inventario
@@ -445,7 +484,7 @@ def CraftingItems():
 
                     elif answer2 == "4":
                         Option = [InventoryToSell[15], InventoryToSell[16], InventoryToSell[17]]
-                        craftingattempt=Level*Option
+                        craftingattempt=Player.level*Option
                         if craftingattempt >= SuccessRating:
                             print("Done and Done!!! "+str(craftingattempt))
                             #remover os items do inventario
@@ -461,12 +500,15 @@ def CraftingItems():
 CraftingItems()
 
 def SellingItems():
+    aux=random.randint(1,2,3,4,5,6,7,8)
     print("Its time to sell your awesome items")
     aux = True
     while aux:    
         randSelect = random.choice(InventoryToSell)
         #definir x
+        x=1
         randAmount = random.randint(1, x)
         print("A random NPC would like to buy: " + randSelect + str(randAmount))
-
         aux = False
+
+SellingItems()
