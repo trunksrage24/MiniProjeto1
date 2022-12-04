@@ -1,17 +1,17 @@
 #projeto realizado por Vitor Daniel e João Carvalho
-  #import colorama
-  #from colorama import Fore
+
 import random  
+
+
 #objetivo alcançar 100k em lucros
 
 #classes para cada item:
-    #4 espadas
+    #3 espadas
     #3 escudos
-    #2 capacetes
+    #3 capacetes
     #3 armaduras
-    #gems
-    #1manto
-#cada item pode ser encantado com gems, cada cor gera um efeito em cada item: red attack, green defense e blue speed/invisibility.
+    #3 leggins
+    #3 sapatos
 
 class Item:
     def __init__(self, name, gold):
@@ -22,7 +22,7 @@ class Item:
         print("Name" + self.name)
         print("Sell Value" + self.gold)
 class Swords(Item):
-    #pelo menos 4 espadas diferentes, 1 iniciante, 1 intermédia e 2 avançadas
+    #3 espadas
     def __init__(self):
         super().__init__("Sword", 0)
     
@@ -55,7 +55,7 @@ class SwordIni(Swords):
         return super().Display()
 
 class Shields(Item):
-    #pelo menos 3 shields, begginer, intermediate e advanced
+    #3 shields
     def __init__(self):
         super().__init__("Shield", 0)
 
@@ -266,11 +266,9 @@ class Arrows(Item):
         print("Name" + self.name)
         print("Sell Value" + self.gold)
 
-InventoryToSell = [SwordIni, SwordInter, SwordAdva, ShieldIni, ShieldInter, ShieldAdva, ChestplatelIni, 
-                    ChestplateInter, ChestplateAdva, HelmetIni, HelmetInter, HelmetAdva, LegginsIni, LegginsInter, 
+InventoryToSell = [SwordIni, SwordInter, SwordAdva, ShieldIni, ShieldInter, ShieldAdva, HelmetIni, HelmetInter, HelmetAdva, 
+                    ChestplatelIni, ChestplateInter, ChestplateAdva, LegginsIni, LegginsInter, 
                     LegginsAdva, ShoesIni, ShoesInter, ShoesAdva, BowIni, BowInter, BowAdva, Arrows]
-
-
 
 Resources = {
     "wood" : 5,
@@ -284,7 +282,6 @@ ResourcesPrice = {
     "leather" : 35,
     "iron" : 90,
     "gold" : 180
-
 }
 
 Recipes= {
@@ -318,8 +315,6 @@ Recipes= {
     "BowAdva" : "You need: 1 leather and 3 irons and 2 golds.", #665
     
     "Arrows" : "You need: 3 wood and 1 iron" # 165
-
-
 }
 
 TotalReceitas=0        
@@ -327,6 +322,7 @@ Level=1
 money=1500
 day=1
 SuccessRating=5
+
 print("Day "+str(day))
 print("Level "+str(Level))
 print("Money: "+str(money))
@@ -336,8 +332,7 @@ print("Leather: "+str(Resources["leather"]))
 print("Iron: "+str(Resources["iron"]))
 print("gold: "+str(Resources["gold"]))
 
-def buyresourcesAndRecipes():
-    
+def BuyResourceRecipes():
     print("Buy Resources/Recipes")
     aux=True
     while aux:
@@ -364,19 +359,114 @@ def buyresourcesAndRecipes():
             print("Here recipes") 
             #puxar recipes aqui   
         elif n1=="6":
-            aux=False
-buyresourcesAndRecipes()
+            aux = False
 
-def crafting():
+BuyResourceRecipes()
+
+def CraftingItems():
     print("Crafting Time!!")
-    randnum=random.randint(1,10)
-    craftingattempt=Level*randnum
-    if craftingattempt >= SuccessRating:
-        print("Done and Done!!! "+str(craftingattempt))
-        #remover os items do inventario
-        #dar exp ao jogador
-    elif craftingattempt < SuccessRating:  
-        print("Not Done! "+str(craftingattempt)) 
-        #remover os items do inventario
+    aux = True
+    while aux:
+        print("Choose the type of item you want to craft.")
+        print("Select Sword(1), Shield(2), Armor(3), Bow(4) or Leave(5)")
+        options = [1, 2, 3, 4, 5]
+        answer = input()
+        if answer not in options:
+            print("Select Sword(1), Shield(2), Armor(3), Bow(4) or Leave(5)")
+        else:
+            if answer == "1":
+                Option = [InventoryToSell[0], InventoryToSell[1], InventoryToSell[2]]
+                
+                craftingattempt=Level*Option
+                if craftingattempt >= SuccessRating:
+                    print("Done and Done!!! "+str(craftingattempt))
+                    #remover os items do inventario
+                    #dar exp ao jogador
 
-crafting()
+                elif craftingattempt < SuccessRating:  
+                    print("Not Done! "+str(craftingattempt)) 
+                    #remover os items do inventario
+            
+            elif answer == "2":
+                Option = [InventoryToSell[3], InventoryToSell[4], InventoryToSell[5]]
+                craftingattempt=Level*randOption
+                if craftingattempt >= SuccessRating:
+                    print("Done and Done!!! "+str(craftingattempt))
+                    #remover os items do inventario
+                    #dar exp ao jogador
+
+                elif craftingattempt < SuccessRating:  
+                    print("Not Done! "+str(craftingattempt)) 
+                    #remover os items do inventario
+
+            elif answer == "3":
+                print("Please choose the type of armor")
+                print("Select Helmet(1), Chestplate(2), Leggins(3) or Shoes(4) or Leave(5)")
+                options2 = [1, 2, 3, 4, 5]
+                answer2 = input()
+                if answer2 not in options2:
+                    print("Select Helmet(1), Chestplate(2), Leggins(3) or Shoes(4) or Leave(5)")
+                else:
+                    if answer2 == "1":
+                        Option = [InventoryToSell[6], InventoryToSell[7], InventoryToSell[8]]
+                        craftingattempt=Level*Option
+                        if craftingattempt >= SuccessRating:
+                            print("Done and Done!!! "+str(craftingattempt))
+                            #remover os items do inventario
+                            #dar exp ao jogador
+
+                        elif craftingattempt < SuccessRating:  
+                            print("Not Done! "+str(craftingattempt)) 
+                            #remover os items do inventario
+
+                    elif answer2 == "2":
+                        Option = [InventoryToSell[9], InventoryToSell[10], InventoryToSell[11]]
+                        craftingattempt=Level*Option
+                        if craftingattempt >= SuccessRating:
+                            print("Done and Done!!! "+str(craftingattempt))
+                            #remover os items do inventario
+                            #dar exp ao jogador
+
+                        elif craftingattempt < SuccessRating:  
+                            print("Not Done! "+str(craftingattempt)) 
+                            #remover os items do inventario  
+
+                    elif answer2 == "3":
+                        Option = [InventoryToSell[12], InventoryToSell[13], InventoryToSell[14]]
+                        craftingattempt=Level*Option
+                        if craftingattempt >= SuccessRating:
+                            print("Done and Done!!! "+str(craftingattempt))
+                            #remover os items do inventario
+                            #dar exp ao jogador
+
+                        elif craftingattempt < SuccessRating:  
+                            print("Not Done! "+str(craftingattempt)) 
+                            #remover os items do inventario        
+
+                    elif answer2 == "4":
+                        Option = [InventoryToSell[15], InventoryToSell[16], InventoryToSell[17]]
+                        craftingattempt=Level*Option
+                        if craftingattempt >= SuccessRating:
+                            print("Done and Done!!! "+str(craftingattempt))
+                            #remover os items do inventario
+                            #dar exp ao jogador
+
+                        elif craftingattempt < SuccessRating:  
+                            print("Not Done! "+str(craftingattempt)) 
+                            #remover os items do inventario   
+
+                    elif answer2 == "5":
+                        aux = False
+
+CraftingItems()
+
+def SellingItems():
+    print("Its time to sell your awesome items")
+    aux = True
+    while aux:    
+        randSelect = random.choice(InventoryToSell)
+        #definir x
+        randAmount = random.randint(1, x)
+        print("A random NPC would like to buy: " + randSelect + str(randAmount))
+
+        aux = False
