@@ -500,15 +500,50 @@ def CraftingItems():
 CraftingItems()
 
 def SellingItems():
-    aux=random.randint(1,2,3,4,5,6,7,8)
-    print("Its time to sell your awesome items")
-    aux = True
-    while aux:    
-        randSelect = random.choice(InventoryToSell)
-        #definir x
-        x=1
-        randAmount = random.randint(1, x)
-        print("A random NPC would like to buy: " + randSelect + str(randAmount))
-        aux = False
+    
+    def NPC():
+        #alterar para ter uma funcao para cada npc, provavelmente dentro de uma classe NPC 
+        print("Its time to sell your awesome items")
+        npcRange = (1,2,3,4,5,6,7,8)
+        npcNumber=random.choice(npcRange)
+        if npcNumber == 1:
+            print("Your loyal customer Bill showed up to your store to purchase some items! \n")
+            print("Since he's a regular you usually give him a 20(%) discount... \n")
+            print("Will you keep giving him his regular discount or sell an item for full price? Select (y) or (n) \n")
+            print("Beware if you dont give him the usual discount he probably wont show up again... \n")
+            answerNPC = input()
+            OptionNPC = ["y", "n"]
+            if answerNPC not in OptionNPC:
+                print("Will you keep giving him his regular discount or sell an item for full price? \n")
+                print("Beware if you dont give him the usual discount he probably wont show up again... \n")
+            
+            elif answerNPC == "y":
+                aux = True
+                while aux:    
+                    randSelect = random.choice(InventoryToSell)
+                    #definir x para numero total de items no inventario to sell
+                    x=1
+                    randAmount = random.randint(1, x)
+                    print("Your loyal customer will be purchasing : " + randSelect + str(randAmount))
+                    #aplicar 20% desconto na compra e remover o item do inventario
+                    #Player.totalgold = ItemPrice - (ItemPrice * 0.20)
+                    aux = False
+
+            elif answerNPC == "n":
+                aux = True
+                while aux:    
+                    randSelect = random.choice(InventoryToSell)
+                    #definir x para numero total de items no inventario to sell
+                    x=1
+                    randAmount = random.randint(1, x)
+                    print("Your loyal customer will be purchasing : " + randSelect + str(randAmount))
+                    #aplicar 20% desconto na compra e remover o item do inventario
+                    #Player.totalgold = ItemPrice - (ItemPrice * 0.20)
+                    #atualizar lista de clientes 
+                    npcRange = (2,3,4,5,6,7,8)
+                    aux = False
+
+        elif npcNumber == 2:
+            print("")
 
 SellingItems()
