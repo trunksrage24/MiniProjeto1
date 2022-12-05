@@ -13,6 +13,7 @@ import random
     #3 leggins
     #3 sapatos
 
+#add amount variable in all class
 class Item:
     def __init__(self, name, gold):
         self.name = name
@@ -39,6 +40,7 @@ class Swords(Item):
 
 #espada avançada
 class SwordAdva(Swords):
+
     def __init__(self):
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
@@ -326,6 +328,8 @@ Recipes= {
 
 TotalReceitas=0        
 
+
+
 day=1
 SuccessRating=5
 
@@ -500,50 +504,72 @@ def CraftingItems():
 CraftingItems()
 
 def SellingItems():
-    
-    def NPC():
-        #alterar para ter uma funcao para cada npc, provavelmente dentro de uma classe NPC 
-        print("Its time to sell your awesome items")
-        npcRange = (1,2,3,4,5,6,7,8)
-        npcNumber=random.choice(npcRange)
-        if npcNumber == 1:
-            print("Your loyal customer Bill showed up to your store to purchase some items! \n")
-            print("Since he's a regular you usually give him a 20(%) discount... \n")
+    #alterar para ter uma funcao para cada npc, provavelmente dentro de uma classe NPC 
+    print("Its time to sell your awesome items")
+    npcRange = (1,2,3,4,5,6,7,8)
+    npcNumber=random.choice(npcRange)
+    if npcNumber == 1:
+        print("Your loyal customer Bill showed up to your store to purchase some items! \n")
+        print("Since he's a regular you usually give him a 20(%) discount... \n")
+        print("Will you keep giving him his regular discount or sell an item for full price? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
             print("Will you keep giving him his regular discount or sell an item for full price? Select (y) or (n) \n")
-            print("Beware if you dont give him the usual discount he probably wont show up again... \n")
-            answerNPC = input()
-            OptionNPC = ["y", "n"]
-            if answerNPC not in OptionNPC:
-                print("Will you keep giving him his regular discount or sell an item for full price? \n")
-                print("Beware if you dont give him the usual discount he probably wont show up again... \n")
-            
-            elif answerNPC == "y":
-                aux = True
-                while aux:    
-                    randSelect = random.choice(InventoryToSell)
-                    #definir x para numero total de items no inventario to sell
-                    x=1
-                    randAmount = random.randint(1, x)
-                    print("Your loyal customer will be purchasing : " + randSelect + str(randAmount))
-                    #aplicar 20% desconto na compra e remover o item do inventario
-                    #Player.totalgold = ItemPrice - (ItemPrice * 0.20)
-                    aux = False
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your loyal customer will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                #aplicar 20% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.20)
+                aux = False
 
-            elif answerNPC == "n":
-                aux = True
-                while aux:    
-                    randSelect = random.choice(InventoryToSell)
-                    #definir x para numero total de items no inventario to sell
-                    x=1
-                    randAmount = random.randint(1, x)
-                    print("Your loyal customer will be purchasing : " + randSelect + str(randAmount))
-                    #aplicar 20% desconto na compra e remover o item do inventario
-                    #Player.totalgold = ItemPrice - (ItemPrice * 0.20)
-                    #atualizar lista de clientes 
-                    npcRange = (2,3,4,5,6,7,8)
-                    aux = False
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #definir x para numero total de items no inventario to sell
+                x=1
+                randAmount = random.randint(1, x)
+                print("Although Bill is very angry with you he will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Bill left the shop yelling at you : MotherF*!%#+@ !!!")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
 
-        elif npcNumber == 2:
-            print("")
+    elif npcNumber == 2:
+        print("Your crush from the flower shop next to you has entered your shop in hopes of buying something nice for her niece \n")
+        print("Since you like her so much you could risk loosing profit AND make her happy with a 50(%) discount on her purchase \n")
+        print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("You have failed all man today, you let a mere woman buy you item(s) for next to nothing... SIMP!!! \n")
+                #aplicar 50% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.50)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Although Bill is very angry with you he will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Bill left the shop yelling at you : MotherF*!%#+@ !!!")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+                print(randSelect)
 
 SellingItems()
