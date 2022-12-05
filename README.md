@@ -6,6 +6,8 @@
 3º commit - implementaçao de funcao de compra de recursos e craft de items (incompleto)
 4º commit - adicionado o sistema de monetizaçao a funçao de crafting e criaçao da funçao de venda de items
 5º commit - criaçao de sistema de npcs com personalidades para comprar items
+6º commit - "still finishing npc function; still need to apply to main code: removing resource spent on crafting, ad
+ding and/or removing money, updating lists of items (and their amounts) and recipes"
 
 #falta remover os recursos usados em cada craft e ter um inventario para recursos
 #falta fazer uma lista com as receitas que se vao comprando
