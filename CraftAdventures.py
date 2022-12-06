@@ -13,6 +13,7 @@ import random
     #3 leggins
     #3 sapatos
 
+#add amount variable in all class
 class Item:
     def __init__(self, name, gold):
         self.name = name
@@ -42,6 +43,7 @@ class SwordAdva(Swords):
     gold=2
     SuccessRating=10
     def __init__(self,iron,gold,SuccessRating):
+
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
         self.iron=iron
@@ -478,6 +480,8 @@ Recipes= {
 
 TotalReceitas=0        
 
+
+
 day=1
 SuccessRating=5
 
@@ -824,15 +828,185 @@ def CraftingItems():
 CraftingItems()
 
 def SellingItems():
-    aux=random.randint(1,2,3,4,5,6,7,8)
+    #alterar para ter uma funcao para cada npc, provavelmente dentro de uma classe NPC 
     print("Its time to sell your awesome items")
-    aux = True
-    while aux:    
-        randSelect = random.choice(InventoryToSell)
-        #definir x
-        x=1
-        randAmount = random.randint(1, x)
-        print("A random NPC would like to buy: " + randSelect + str(randAmount))
-        aux = False
+    npcRange = (1,2,3,4,5,6,7,8)
+    npcNumber=random.choice(npcRange)
+    if npcNumber == 1:
+        print("Your loyal customer Bill showed up to your store to purchase some items! \n")
+        print("Since he's a regular you usually give him a 20(%) discount... \n")
+        print("Will you keep giving him his regular discount or sell an item for full price? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you keep giving him his regular discount or sell an item for full price? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your loyal customer will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                #aplicar 20% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.20)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #definir x para numero total de items no inventario to sell
+                x=1
+                randAmount = random.randint(1, x)
+                print("Although Bill is very angry with you he will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Bill left the shop yelling at you : MotherF*!%#+@ !!!")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+
+    elif npcNumber == 2:
+        print("Your crush from the flower shop next to you has entered your shop in hopes of buying something nice for her niece \n")
+        print("Since you like her so much you could risk loosing profit AND make her happy with a 50(%) discount on her purchase \n")
+        print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("You have failed all man today, you let a mere woman buy you item(s) for next to nothing... SIMP!!! \n")
+                #aplicar 50% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.50)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Congratulations Private! You passed the SIMP test and sold " + str(randAmount) + " item(s) at full price! \n")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+
+    elif npcNumber == 3:
+        print("A new client showed up at your shop. \n")
+        print("He seems to understand very easily the high quality of yout craftsmanship. \n")
+        aux = True
+        while aux:    
+            randSelect = random.choice(InventoryToSell)
+            #randAmount = random.randint(1, InventoryToSell.amount)
+            print("New client will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+            print("You have sold" + str(randAmount) + randSelect + "from you at full price. \n")
+            #Player.totalgold += ItemPrice
+            aux = False
+
+    elif npcNumber == 4:
+
+        print("Your crush from the flower shop next to you has entered your shop in hopes of buying something nice for her niece \n")
+        print("Since you like her so much you could risk loosing profit AND make her happy with a 50(%) discount on her purchase \n")
+        print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("You have failed all man today, you let a mere woman buy you item(s) for next to nothing... SIMP!!! \n")
+                #aplicar 50% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.50)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Congratulations Private! You passed the SIMP test and sold " + str(randAmount) + " item(s) at full price! \n")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+                print(randSelect)
+
+    elif npcNumber == 5:
+
+        print("Your crush from the flower shop next to you has entered your shop in hopes of buying something nice for her niece \n")
+        print("Since you like her so much you could risk loosing profit AND make her happy with a 50(%) discount on her purchase \n")
+        print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("You have failed all man today, you let a mere woman buy you item(s) for next to nothing... SIMP!!! \n")
+                #aplicar 50% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.50)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Congratulations Private! You passed the SIMP test and sold " + str(randAmount) + " item(s) at full price! \n")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+                print(randSelect)
+        
+    elif npcNumber == 6:
+
+        print("Your crush from the flower shop next to you has entered your shop in hopes of buying something nice for her niece \n")
+        print("Since you like her so much you could risk loosing profit AND make her happy with a 50(%) discount on her purchase \n")
+        print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        answerNPC = input()
+        OptionNPC = ["y", "n"]
+        if answerNPC not in OptionNPC:
+            print("Will you once again be her simp and possibly loose money with this customer? Select (y) or (n) \n")
+        
+        elif answerNPC == "y":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("You have failed all man today, you let a mere woman buy you item(s) for next to nothing... SIMP!!! \n")
+                #aplicar 50% desconto na compra e remover o item do inventario
+                #Player.totalgold += InventoryToSell[] - (ItemPrice * 0.50)
+                aux = False
+
+        elif answerNPC == "n":
+            aux = True
+            while aux:    
+                randSelect = random.choice(InventoryToSell)
+                #randAmount = random.randint(1, InventoryToSell.amount)
+                print("Your crush will be purchasing : " + str(randAmount) + randSelect + "from you. \n")
+                print("Congratulations Private! You passed the SIMP test and sold " + str(randAmount) + " item(s) at full price! \n")
+                #remover o item do inventario
+                #Player.totalgold += ItemPrice
+                aux = False
+                print(randSelect)
+
+    else:
+        pass
 
 SellingItems()

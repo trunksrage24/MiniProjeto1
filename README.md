@@ -3,6 +3,14 @@
 
 1º commit - implementaçao de um esqueleto e ideia base (ainda por debater)
 2º commit - dar valor de venda a cada item (ideia geral) e contar receitas e recursos; decidir valores iniciais de recursos, receitas e dinheiro.
+3º commit - implementaçao de funcao de compra de recursos e craft de items (incompleto)
+4º commit - adicionado o sistema de monetizaçao a funçao de crafting e criaçao da funçao de venda de items
+5º commit - criaçao de sistema de npcs com personalidades para comprar items
+6º commit - "still finishing npc function; still need to apply to main code: removing resource spent on crafting, ad
+ding and/or removing money, updating lists of items (and their amounts) and recipes"
+
+#falta remover os recursos usados em cada craft e ter um inventario para recursos
+#falta fazer uma lista com as receitas que se vao comprando
 
 4 recursos - iron, gold, leather, wood e gems (3 tipos)
 
