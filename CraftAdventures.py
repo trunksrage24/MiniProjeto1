@@ -32,34 +32,54 @@ class Swords(Item):
     #3 espadas
     def __init__(self):
         super().__init__("Sword", 0)
-    
     def Display(self):
         print("Name" + self.name)
         print("Sell Value" + self.gold)
 
 #espada avançada
 class SwordAdva(Swords):
-    def __init__(self):
+    iron=4
+    gold=2
+    SuccessRating=10
+    def __init__(self,iron,gold,SuccessRating):
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #espada intermédia
 class SwordInter(Swords):
-    def __init__(self):
+    wood=1
+    leather=2
+    iron=3
+    SuccessRating=10
+    def __init__(self,wood,leather,iron,SuccessRating):
         super().__init__("SwordInter", 10000)
         print(self.name + str(self.gold))
+        self.wood=wood
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #espada iniciante
 class SwordIni(Swords):
-    def __init__(self):
+    wood=1
+    leather=1
+    SuccessRating=3
+    def __init__(self,wood,leather,SuccessRating):
         super().__init__("SwordIni", 10000)
         print(self.name + str(self.gold))
+        self.wood=wood
+        self.leather=leather
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
+        
 
 class Shields(Item):
     #3 shields
@@ -72,27 +92,52 @@ class Shields(Item):
         
 #escudo iniciante
 class ShieldIni(Shields):
-    def __init__(self):
+    wood=1
+    leather=1
+    SuccessRating=10
+    def __init__(self,wood,leather):
         super().__init__("ShieldIni", 10000)
         print(self.name + str(self.gold))
+        self.wood=wood
+        self.leather=leather
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
+        print("wood needed: "+str(self.wood)+" , "+str(self.leather)+" leather")
 
 #escudo intermedio
 class ShieldInter(Shields):
-    def __init__(self):
+    wood=1
+    leather=2
+    iron=2
+    SuccessRating=10
+    def __init__(self,wood,leather,iron):
         super().__init__("ShieldInter", 10000)
         print(self.name + str(self.gold))
+        self.wood=wood
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
+        print("wood needed: "+str(self.wood)+" , "+str(self.leather)+" leather"+str(self.iron)+" iron")
 
 #escudo avançado
 class ShieldAdva(Shields):
-    def __init__(self):
+    leather=2
+    iron=3
+    gold=1
+    SuccessRating=15
+    def __init__(self,leather,iron,gold):
         super().__init__("ShieldAdva", 10000)
         print(self.name + str(self.gold))
+        self.gold=gold
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
+        print("wood needed"+str(self.leather)+" leather"+str(self.iron)+" iron")
 
 class Armors(Item):
     # 3 helmets, 3 chestplates, 3 leggings e 3 shoes
@@ -113,27 +158,49 @@ class Helmet(Armors):
         
 #helmet iniciante
 class HelmetIni(Helmet):
-    def __init__(self):
-        super().__init__("HelmetIni", 10000)
+    leather=1
+    iron=1
+    SuccessRating=10
+    def __init__(self,leather,iron):
+        super().__init__("ShieldInter", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
+        print(str(self.leather)+" leather"+str(self.iron)+" iron")
 
 #helmet intermédio
 class HelmetInter(Helmet):
-    def __init__(self):
+    leather=2
+    iron=3
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
         super().__init__("HelmetInter", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #helmet avançado
 class HelmetAdva(Helmet):
-    def __init__(self):
+    leather=3
+    iron=3
+    gold=2
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
         super().__init__("HelmetAdva", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 class BodyArmor(Armors):
     def __init__(self):
@@ -145,27 +212,47 @@ class BodyArmor(Armors):
         
 #armadura corpo iniciante
 class ChestplatelIni(BodyArmor):
-    def __init__(self):
-        super().__init__("ChestplatelIni", 10000)
+    leather=2
+    iron=1
+    SuccessRating=10
+    def __init__(self,leather,iron):
+        super().__init__("ChestplateIni", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #armadura corpo intermédia
 class ChestplateInter(BodyArmor):
-    def __init__(self):
+    leather=3
+    iron=2
+    SuccessRating=10
+    def __init__(self,leather,iron):
         super().__init__("ChestplateInter", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #armadura corpo avançada
 class ChestplateAdva(BodyArmor):
-    def __init__(self):
+    leather=4
+    iron=3
+    gold=4
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
         super().__init__("ChestplateAdva", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 class Leggins(Armors):
     def __init__(self):
@@ -177,27 +264,47 @@ class Leggins(Armors):
         
 #leggins iniciante
 class LegginsIni(Leggins):
-    def __init__(self):
+    leather=2
+    iron=1
+    SuccessRating=10
+    def __init__(self,leather,iron):
         super().__init__("LegginsIni", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #leggins intermedio
 class LegginsInter(Leggins):
-    def __init__(self):
-        super().__init__("LegginsInter", 10000)
+    leather=3
+    iron=3
+    SuccessRating=10
+    def __init__(self,leather,iron):
+        super().__init__("LegginsInt", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #leggins avançado
 class LegginsAdva(Leggins):
-    def __init__(self):
-        super().__init__("LegginsAdva", 10000)
+    leather=4
+    iron=2
+    gold=3
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
+        super().__init__("HelmetInter", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 class Shoes(Armors):
     def __init__(self):
@@ -209,28 +316,48 @@ class Shoes(Armors):
 
 #shoes iniciante
 class ShoesIni(Shoes):
-    def __init__(self):
+    leather=1
+    iron=1
+    SuccessRating=10
+    def __init__(self,leather,iron):
         super().__init__("ShoesIni", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 
 #shoes intermedio
 class ShoesInter(Shoes):
-    def __init__(self):
+    leather=2
+    iron=2
+    SuccessRating=10
+    def __init__(self,leather,iron):
         super().__init__("ShoesInter", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #shoes avançado
 class ShoesAdva(Shoes):
-    def __init__(self):
+    leather=3
+    iron=3
+    gold=1
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
         super().__init__("ShoesAdva", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 class Bow(Item):
     def __init__(self):
@@ -242,36 +369,61 @@ class Bow(Item):
 
 #bow iniciante
 class BowIni(Bow):
-    def __init__(self):
+    leather=1
+    wood=1
+    SuccessRating=10
+    def __init__(self,leather):
         super().__init__("BowIni", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #bow intermedio
 class BowInter(Bow):
-    def __init__(self):
-        super().__init__("BowInter", 10000)
+    leather=1
+    wood=2
+    iron=2
+    SuccessRating=10
+    def __init__(self,leather,iron):
+        super().__init__("BowInt", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #bow avançado
 class BowAdva(Bow):
-    def __init__(self):
+    leather=3
+    iron=3
+    gold=1
+    SuccessRating=10
+    def __init__(self,leather,iron,gold):
         super().__init__("BowAdva", 10000)
         print(self.name + str(self.gold))
+        self.leather=leather
+        self.iron=iron
+        self.gold=gold
+        self.SuccessRating=SuccessRating
     def Display(self):
-        return super().Display()
+        super().Display()
 
 #arrows
-class Arrows(Item):
-    def __init__(self):
-        super().__init__("Bow", 0)
-
+class Arrows(Bow):
+    wood=3
+    iron=1
+    SuccessRating=10
+    def __init__(self,wood,iron):
+        super().__init__("HelmetInter", 10000)
+        print(self.name + str(self.gold))
+        self.wood=wood
+        self.iron=iron
+        self.SuccessRating=SuccessRating
     def Display(self):
-        print("Name" + self.name)
-        print("Sell Value" + self.gold)
+        super().Display()
 
 InventoryToSell = [SwordIni, SwordInter, SwordAdva, ShieldIni, ShieldInter, ShieldAdva, HelmetIni, HelmetInter, HelmetAdva, 
                     ChestplatelIni, ChestplateInter, ChestplateAdva, LegginsIni, LegginsInter, 
@@ -408,93 +560,265 @@ def CraftingItems():
     while aux:
         print("Choose the type of item you want to craft.")
         print("Select Sword(1), Shield(2), Armor(3), Bow(4) or Leave(5)")
-        options = [1, 2, 3, 4, 5]
         answer = input()
-        if answer not in options:
-            print("Select Sword(1), Shield(2), Armor(3), Bow(4) or Leave(5)")
-        else:
-            if answer == "1":
-                Option = [InventoryToSell[0], InventoryToSell[1], InventoryToSell[2]]
-                
-                craftingattempt=Player.Player.level*Option
-                if craftingattempt >= SuccessRating:
-                    print("Done and Done!!! "+str(craftingattempt))
-                    #remover os items do inventario
-                    #dar exp ao jogador
+        if answer == "1":
+                Choose=input("Which Sword do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                auxrand=random.randint(1,10)
+                craftingattempt=Player.level*auxrand
+                if Choose=="1":
+                    #SwordIni
+                    if craftingattempt >= SwordIni.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        
+                        #dar exp ao jogador
+                    elif craftingattempt < SwordIni.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario
+                if Choose=="2":
+                    #SwordInt
+                    if craftingattempt >= SwordIni.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+                    elif craftingattempt < SwordIni.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario    
+                if Choose=="3":
+                    #SwordAdv
+                    if craftingattempt >= SwordAdva.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+                    elif craftingattempt < SwordAdva.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario        
 
-                elif craftingattempt < SuccessRating:  
-                    print("Not Done! "+str(craftingattempt)) 
-                    #remover os items do inventario
-            
-            elif answer == "2":
-                Option = [InventoryToSell[3], InventoryToSell[4], InventoryToSell[5]]
-                craftingattempt=Player.level*Option
-                if craftingattempt >= SuccessRating:
-                    print("Done and Done!!! "+str(craftingattempt))
-                    #remover os items do inventario
-                    #dar exp ao jogador
 
-                elif craftingattempt < SuccessRating:  
-                    print("Not Done! "+str(craftingattempt)) 
-                    #remover os items do inventario
 
-            elif answer == "3":
+
+        elif answer == "2":
+                Choose=input("Which Shield do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                auxrand=random.randint(1,10)
+                craftingattempt=Player.level*auxrand
+                if Choose=="1":
+                    #ShieldInit
+                    if craftingattempt >= ShieldIni.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+
+                    elif craftingattempt < ShieldIni.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario
+                if Choose=="2":
+                    #ShieldInt
+                    if craftingattempt >= ShieldInter.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+
+                    elif craftingattempt < ShieldInter.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario
+                if Choose=="3":
+                    #ShieldAdv
+                    if craftingattempt >= ShieldAdva.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+
+                    elif craftingattempt < ShieldAdva.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario        
+            #ARMOR            
+        elif answer == "3":
                 print("Please choose the type of armor")
-                print("Select Helmet(1), Chestplate(2), Leggins(3) or Shoes(4) or Leave(5)")
-                options2 = [1, 2, 3, 4, 5]
-                answer2 = input()
-                if answer2 not in options2:
-                    print("Select Helmet(1), Chestplate(2), Leggins(3) or Shoes(4) or Leave(5)")
-                else:
-                    if answer2 == "1":
-                        Option = [InventoryToSell[6], InventoryToSell[7], InventoryToSell[8]]
-                        craftingattempt=Player.level*Option
-                        if craftingattempt >= SuccessRating:
-                            print("Done and Done!!! "+str(craftingattempt))
-                            #remover os items do inventario
-                            #dar exp ao jogador
+                answer2=input("Select Helmet(1), Chestplate(2), Leggins(3) or Shoes(4) or Leave(5)")
+                if answer2 == "1":
+                        Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        auxrand=random.randint(1,10)
+                        craftingattempt=Player.level*auxrand
+                        if Choose=="1":
+                            #helmetini
+                            if craftingattempt >= HelmetIni.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                        elif craftingattempt < SuccessRating:  
-                            print("Not Done! "+str(craftingattempt)) 
-                            #remover os items do inventario
+                            elif craftingattempt < HelmetIni.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
+                        if Choose=="2":
+                            #helmetint
+                            if craftingattempt >= HelmetInter.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                    elif answer2 == "2":
-                        Option = [InventoryToSell[9], InventoryToSell[10], InventoryToSell[11]]
-                        craftingattempt=Player.level*Option
-                        if craftingattempt >= SuccessRating:
-                            print("Done and Done!!! "+str(craftingattempt))
-                            #remover os items do inventario
-                            #dar exp ao jogador
+                            elif craftingattempt < HelmetInter.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario    
+                        if Choose=="3":
+                            #HelmetAdv
+                            if craftingattempt >= HelmetAdva.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                        elif craftingattempt < SuccessRating:  
-                            print("Not Done! "+str(craftingattempt)) 
-                            #remover os items do inventario  
+                            elif craftingattempt < HelmetAdva.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
 
-                    elif answer2 == "3":
-                        Option = [InventoryToSell[12], InventoryToSell[13], InventoryToSell[14]]
-                        craftingattempt=Player.level*Option
-                        if craftingattempt >= SuccessRating:
-                            print("Done and Done!!! "+str(craftingattempt))
-                            #remover os items do inventario
-                            #dar exp ao jogador
 
-                        elif craftingattempt < SuccessRating:  
-                            print("Not Done! "+str(craftingattempt)) 
-                            #remover os items do inventario        
+                elif answer2 == "2":
+                        Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        auxrand=random.randint(1,10)
+                        craftingattempt=Player.level*auxrand
+                        if Choose=="1":
+                            #chestplateini
+                            if craftingattempt >= ChestplatelIni.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                    elif answer2 == "4":
-                        Option = [InventoryToSell[15], InventoryToSell[16], InventoryToSell[17]]
-                        craftingattempt=Player.level*Option
-                        if craftingattempt >= SuccessRating:
-                            print("Done and Done!!! "+str(craftingattempt))
-                            #remover os items do inventario
-                            #dar exp ao jogador
+                            elif craftingattempt < ChestplatelIni.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
+                        if Choose=="2":
+                            #Chestplateint
+                            if craftingattempt >= ChestplateInter.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                        elif craftingattempt < SuccessRating:  
-                            print("Not Done! "+str(craftingattempt)) 
-                            #remover os items do inventario   
+                            elif craftingattempt < ChestplateInter.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario    
+                        if Choose=="3":
+                            #ChestplateAdv
+                            if craftingattempt >= ChestplateAdva.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
 
-                    elif answer2 == "5":
+                            elif craftingattempt < ChestplateAdva.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
+
+                elif answer2 == "3":
+                        Choose=input("Which Leggins do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        auxrand=random.randint(1,10)
+                        craftingattempt=Player.level*auxrand
+                        if Choose=="1":
+                            #legginsini
+                            if craftingattempt >= LegginsIni.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < LegginsIni.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
+                        if Choose=="2":
+                            #legginsint
+                            if craftingattempt >= LegginsInter.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < LegginsInter.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario    
+                        if Choose=="3":
+                            #legginsAdv
+                            if craftingattempt >= LegginsAdva.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < LegginsAdva.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario        
+
+                elif answer2 == "4":
+                        Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        auxrand=random.randint(1,10)
+                        craftingattempt=Player.level*auxrand
+                        if Choose=="1":
+                            #shoesini
+                            if craftingattempt >= ShoesIni.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < ShoesIni.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario
+                        if Choose=="2":
+                            #shoesint
+                            if craftingattempt >= ShoesInter.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < ShoesInter.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario    
+                        if Choose=="3":
+                            #shoesAdv
+                            if craftingattempt >= ShoesAdva.SuccessRating:
+                                print("Done and Done!!! "+str(craftingattempt))
+                                #remover os items do inventario
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+1
+
+                            elif craftingattempt < ShoesAdva.SuccessRating:  
+                                print("Not Done! "+str(craftingattempt)) 
+                                #remover os items do inventario   
+        elif answer == "4":
+                Choose=input("Which Bow do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                auxrand=random.randint(1,10)
+                craftingattempt=Player.level*auxrand
+                if Choose=="1":
+                    #BowIni
+                    if craftingattempt >= BowIni.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+                    elif craftingattempt < BowIni.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario
+                if Choose=="2":
+                    #BowInt
+                    if craftingattempt >= BowInter.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+                    elif craftingattempt < BowInter.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario    
+                if Choose=="3":
+                    #BowAdv
+                    if craftingattempt >= BowAdva.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        #dar exp ao jogador
+                    elif craftingattempt < BowAdva.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario
+                elif answer2 == "5":
                         aux = False
 
 CraftingItems()
