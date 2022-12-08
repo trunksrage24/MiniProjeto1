@@ -480,6 +480,45 @@ Recipes= {
     
     "Arrows" : "You need: 3 wood and 1 iron" # 165
 }
+Recipestobuy= {
+    #Beginner(1),Intermediate(2) or Advanced(3)?
+        "1":"Sword Begginer",
+        "2":"Sword Intermediate",
+        "3":"Sword Advanced",
+
+        "4":"Shield Beginner",
+        "5":"Shield Intermediate",
+        "6":"Shield Advanced",
+
+        "7":"Helmet Beginner",
+        "8":"Helmet Intermediate",
+        "9":"Helmet Advanced",
+
+        "10":"Chestplate Beginner",
+        "11":"Chestplate Intermediate",
+        "12":"Chestplate Advanced",
+
+        "13":"Leggins Beginner",
+        "14":"Leggins Intermediate",
+        "15":"Leggins Advanced",
+
+        "16":"Shoes Beginner",
+        "17":"Shoes Intermediate",
+        "18":"Shoes Advanced",
+
+        "19":"Bow Beginner",
+        "20":"Bow Intermediate",
+        "21":"Bow Advanced",
+
+        "22":"Arrows"
+
+
+
+
+}
+Recipesbought={
+
+}
 
 Recipestobuy= {
     #Beginner(1),Intermediate(2) or Advanced(3)?
@@ -585,7 +624,6 @@ def BuyResourceRecipes():
                 print("You dont have enought gold to buy this product!")    
 
         elif n1=="5":
-          
 
             print("Here recipes")   
             #puxar recipes aqui
