@@ -28,6 +28,7 @@ class Player:
     totalgold=5000
     exp=0
     level=1
+    aux=100
 
 class Swords(Item):
     #3 espadas
@@ -556,6 +557,38 @@ def BuyResourceRecipes():
             aux = False
 
 BuyResourceRecipes()
+def levelup():
+    if Player.exp>=100:
+        Player.level=Player.level+1
+        print("Level up!")
+    if Player.exp>=200:
+        Player.level=Player.level+1  
+        print("Level up!")
+    if Player.exp>=300:
+        Player.level=Player.level+1   
+        print("Level up!")
+    if Player.exp>=400:
+        Player.level=Player.level+1   
+        print("Level up!")  
+    if Player.exp>=500:
+        Player.level=Player.level+1   
+        print("Level up!")
+    if Player.exp>=600:
+        Player.level=Player.level+1 
+        print("Level up!")      
+    if Player.exp>=700:
+        Player.level=Player.level+1   
+        print("Level up!")
+    if Player.exp>=800:
+        Player.level=Player.level+1 
+        print("Level up!")
+    if Player.exp>=900:
+        Player.level=Player.level+1  
+        print("Level up!")
+    if Player.exp>=1000:
+        Player.level=Player.level+1      
+        print("Level up!")    
+
 
 def CraftingItems():
     print("Crafting Time!!")
@@ -580,6 +613,7 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-SwordIni.leather
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
+                        levelup()
                     elif craftingattempt < SwordIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
@@ -600,6 +634,7 @@ def CraftingItems():
                         
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
+                        levelup()
                     elif craftingattempt < SwordIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario  
@@ -618,7 +653,8 @@ def CraftingItems():
                         Resources["gold"]=Resources["gold"]-SwordAdva.gold
                         Resources["iron"]=Resources["iron"]-SwordAdva.iron
                         #dar exp ao jogador
-                        Player.exp=Player.exp+20
+                        Player.exp=Player.exp+30
+                        levelup()
                     elif craftingattempt < SwordAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario    
@@ -644,6 +680,7 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-ShieldIni.leather
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
+                        levelup()
                     elif craftingattempt < ShieldIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
@@ -663,6 +700,7 @@ def CraftingItems():
                         Resources["iron"]=Resources["iron"]-ShieldInter.iron
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
+                        levelup()
                     elif craftingattempt < ShieldInter.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
@@ -683,6 +721,7 @@ def CraftingItems():
                         Resources["gold"]=Resources["gold"]-ShieldAdva.gold
                         #dar exp ao jogador
                         Player.exp=Player.exp+20
+                        levelup()
                     elif craftingattempt < ShieldAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario   
@@ -710,7 +749,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-HelmetIni.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
-
+                                levelup()
                             elif craftingattempt < HelmetIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -729,7 +768,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-HelmetInter.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
-
+                                levelup()
                             elif craftingattempt < HelmetInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario 
@@ -749,7 +788,7 @@ def CraftingItems():
                                 Resources["gold"]=Resources["gold"]-HelmetIni.gold
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
-
+                                levelup()
                             elif craftingattempt < HelmetAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -774,7 +813,8 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-ChestplatelIni.iron
 
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+10        
+                                Player.exp=Player.exp+10
+                                levelup()       
                             elif craftingattempt < ChestplatelIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -793,7 +833,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-ChestplateInter.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
-                           
+                                levelup()
                             elif craftingattempt < ChestplateInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario   
@@ -813,7 +853,7 @@ def CraftingItems():
                                 Resources["gold"]=Resources["gold"]-ChestplateAdva.gold
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
-
+                                levelup()
                             elif craftingattempt < ChestplateAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -838,7 +878,7 @@ def CraftingItems():
 
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
-
+                                levelup()
                             elif craftingattempt < LegginsIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -857,6 +897,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-LegginsInter.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
+                                levelup()
                             elif craftingattempt < LegginsInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario    
@@ -876,7 +917,7 @@ def CraftingItems():
                                 Resources["gold"]=Resources["gold"]-LegginsAdva.gold
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
-
+                                levelup()
                             elif craftingattempt < LegginsAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario        
@@ -900,6 +941,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-ShoesIni.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
+                                levelup()
                             elif craftingattempt < ShoesIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
@@ -918,7 +960,7 @@ def CraftingItems():
                                 Resources["iron"]=Resources["iron"]-ShoesInter.iron
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
-
+                                levelup()
                             elif craftingattempt < ShoesInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario  
@@ -938,7 +980,7 @@ def CraftingItems():
                                 Resources["gold"]=Resources["gold"]-ShoesAdva.gold
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
-
+                                levelup()
                             elif craftingattempt < ShoesAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario   
@@ -962,6 +1004,7 @@ def CraftingItems():
                         Resources["wood"]=Resources["wood"]-BowIni.wood
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
+                        levelup()
                     elif craftingattempt < BowIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
@@ -981,6 +1024,7 @@ def CraftingItems():
                         Resources["iron"]=Resources["iron"]-BowInter.iron
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
+                        levelup()
                     elif craftingattempt < BowInter.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario   
@@ -1001,6 +1045,7 @@ def CraftingItems():
                         Resources["iron"]=Resources["iron"]-BowAdva.iron
                         #dar exp ao jogador
                         Player.exp=Player.exp+20
+                        levelup()
                     elif craftingattempt < BowAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
@@ -1021,6 +1066,7 @@ def CraftingItems():
                     
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
+                        levelup()
                     elif craftingattempt < Arrows.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario    
@@ -1028,7 +1074,7 @@ def CraftingItems():
                         Resources["wood"]=Resources["wood"]-Arrows.wood   
                    else:
                     print("Not enough materials!")       
-        elif answer2 == "5":
+        elif answer == "5":
                         aux = False
         else:
             print("Not found!")                
