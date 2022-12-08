@@ -97,7 +97,7 @@ class ShieldIni(Shields):
     wood=1
     leather=1
     SuccessRating=10
-    def __init__(self,wood,leather):
+    def __init__(self,wood,leather,SuccessRating):
         super().__init__("ShieldIni", 10000)
         print(self.name + str(self.gold))
         self.wood=wood
@@ -113,7 +113,7 @@ class ShieldInter(Shields):
     leather=2
     iron=2
     SuccessRating=10
-    def __init__(self,wood,leather,iron):
+    def __init__(self,wood,leather,iron,SuccessRating):
         super().__init__("ShieldInter", 10000)
         print(self.name + str(self.gold))
         self.wood=wood
@@ -130,7 +130,7 @@ class ShieldAdva(Shields):
     iron=3
     gold=1
     SuccessRating=15
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("ShieldAdva", 10000)
         print(self.name + str(self.gold))
         self.gold=gold
@@ -163,7 +163,7 @@ class HelmetIni(Helmet):
     leather=1
     iron=1
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("ShieldInter", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -178,7 +178,7 @@ class HelmetInter(Helmet):
     leather=2
     iron=3
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("HelmetInter", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -194,7 +194,7 @@ class HelmetAdva(Helmet):
     iron=3
     gold=2
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("HelmetAdva", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -217,7 +217,7 @@ class ChestplatelIni(BodyArmor):
     leather=2
     iron=1
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("ChestplateIni", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -231,7 +231,7 @@ class ChestplateInter(BodyArmor):
     leather=3
     iron=2
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("ChestplateInter", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -246,7 +246,7 @@ class ChestplateAdva(BodyArmor):
     iron=3
     gold=4
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("ChestplateAdva", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -269,7 +269,7 @@ class LegginsIni(Leggins):
     leather=2
     iron=1
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("LegginsIni", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -283,7 +283,7 @@ class LegginsInter(Leggins):
     leather=3
     iron=3
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("LegginsInt", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -298,7 +298,7 @@ class LegginsAdva(Leggins):
     iron=2
     gold=3
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("HelmetInter", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -321,7 +321,7 @@ class ShoesIni(Shoes):
     leather=1
     iron=1
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("ShoesIni", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -336,7 +336,7 @@ class ShoesInter(Shoes):
     leather=2
     iron=2
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("ShoesInter", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -351,7 +351,7 @@ class ShoesAdva(Shoes):
     iron=3
     gold=1
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("ShoesAdva", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -374,7 +374,7 @@ class BowIni(Bow):
     leather=1
     wood=1
     SuccessRating=10
-    def __init__(self,leather):
+    def __init__(self,leather,SuccessRating):
         super().__init__("BowIni", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -388,7 +388,7 @@ class BowInter(Bow):
     wood=2
     iron=2
     SuccessRating=10
-    def __init__(self,leather,iron):
+    def __init__(self,leather,iron,SuccessRating):
         super().__init__("BowInt", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -403,7 +403,7 @@ class BowAdva(Bow):
     iron=3
     gold=1
     SuccessRating=10
-    def __init__(self,leather,iron,gold):
+    def __init__(self,leather,iron,gold,SuccessRating):
         super().__init__("BowAdva", 10000)
         print(self.name + str(self.gold))
         self.leather=leather
@@ -418,7 +418,7 @@ class Arrows(Bow):
     wood=3
     iron=1
     SuccessRating=10
-    def __init__(self,wood,iron):
+    def __init__(self,wood,iron,SuccessRating):
         super().__init__("HelmetInter", 10000)
         print(self.name + str(self.gold))
         self.wood=wood
@@ -483,7 +483,6 @@ TotalReceitas=0
 
 
 day=1
-SuccessRating=5
 
 print("Day "+str(day))
 print("Level "+str(Player.level))
@@ -571,33 +570,62 @@ def CraftingItems():
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
                     #SwordIni
+                  print(Recipes["SwordIni"])
+                 
+                  if Resources["wood"]>=SwordIni.wood and Resources["leather"]>=SwordIni.leather:
                     if craftingattempt >= SwordIni.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
-                        
+                        Resources["wood"]=Resources["wood"]-SwordIni.wood
+                        Resources["leather"]=Resources["leather"]-SwordIni.leather
                         #dar exp ao jogador
+                        Player.exp=Player.exp+10
                     elif craftingattempt < SwordIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-SwordIni.wood
+                        Resources["leather"]=Resources["leather"]-SwordIni.leather
+                  else:
+                    print("Not enough materials!")      
                 if Choose=="2":
                     #SwordInt
+                  print(Recipes["SwordInter"]) 
+                  if Resources["wood"]>=SwordInter.wood and Resources["leather"]>=SwordInter.leather and Resources["iron"]>=SwordInter.iron:    
                     if craftingattempt >= SwordIni.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-SwordInter.wood
+                        Resources["leather"]=Resources["leather"]-SwordInter.leather
+                        Resources["iron"]=Resources["iron"]-SwordInter.iron
+                        
                         #dar exp ao jogador
+                        Player.exp=Player.exp+15
                     elif craftingattempt < SwordIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
-                        #remover os items do inventario    
+                        #remover os items do inventario  
+                        Resources["wood"]=Resources["wood"]-SwordInter.wood
+                        Resources["leather"]=Resources["leather"]-SwordInter.leather
+                        Resources["iron"]=Resources["iron"]-SwordInter.iron  
+                  else:
+                    print("Not enough materials!")      
                 if Choose=="3":
                     #SwordAdv
+                   print(Recipes["SwordAdva"])   
+                   if Resources["gold"]>=SwordAdva.gold and Resources["iron"]>=SwordAdva.iron: 
                     if craftingattempt >= SwordAdva.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["gold"]=Resources["gold"]-SwordAdva.gold
+                        Resources["iron"]=Resources["iron"]-SwordAdva.iron
                         #dar exp ao jogador
+                        Player.exp=Player.exp+20
                     elif craftingattempt < SwordAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
-                        #remover os items do inventario        
-
+                        #remover os items do inventario    
+                        Resources["gold"]=Resources["gold"]-SwordAdva.gold
+                        Resources["iron"]=Resources["iron"]-SwordAdva.iron    
+                   else:
+                    print("Not enough materials!") 
 
 
 
@@ -607,34 +635,62 @@ def CraftingItems():
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
                     #ShieldInit
+                  print(Recipes["ShieldIni"])   
+                  if Resources["wood"]>=ShieldIni.wood and Resources["leather"]>=ShieldIni.leather:  
                     if craftingattempt >= ShieldIni.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-ShieldIni.wood
+                        Resources["leather"]=Resources["leather"]-ShieldIni.leather
                         #dar exp ao jogador
-
+                        Player.exp=Player.exp+10
                     elif craftingattempt < ShieldIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-ShieldIni.wood
+                        Resources["leather"]=Resources["leather"]-ShieldIni.leather
+                  else:
+                    print("Not enough materials!")        
                 if Choose=="2":
                     #ShieldInt
+                   print(Recipes["ShieldInter"])  
+                   if Resources["wood"]>=ShieldInter.wood and Resources["leather"]>=ShieldInter.leather and Resources["iron"]>=ShieldInter.iron: 
                     if craftingattempt >= ShieldInter.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-ShieldInter.wood
+                        Resources["leather"]=Resources["leather"]-ShieldInter.leather
+                        Resources["iron"]=Resources["iron"]-ShieldInter.iron
                         #dar exp ao jogador
-
+                        Player.exp=Player.exp+15
                     elif craftingattempt < ShieldInter.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
+                        Resources["wood"]=Resources["wood"]-ShieldInter.wood
+                        Resources["leather"]=Resources["leather"]-ShieldInter.leather
+                        Resources["iron"]=Resources["iron"]-ShieldInter.iron
+                   else:
+                    print("Not enough materials!")      
                 if Choose=="3":
                     #ShieldAdv
+                   print(Recipes["ShieldAdva"])  
+                   if Resources["leather"]>=ShieldAdva.leather and Resources["iron"]>=ShieldAdva.iron and Resources["gold"]>=ShieldAdva.gold: 
                     if craftingattempt >= ShieldAdva.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["leather"]=Resources["leather"]-ShieldAdva.leather
+                        Resources["iron"]=Resources["iron"]-ShieldAdva.iron
+                        Resources["gold"]=Resources["gold"]-ShieldAdva.gold
                         #dar exp ao jogador
-
+                        Player.exp=Player.exp+20
                     elif craftingattempt < ShieldAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
-                        #remover os items do inventario        
+                        #remover os items do inventario   
+                        Resources["leather"]=Resources["leather"]-ShieldAdva.leather
+                        Resources["iron"]=Resources["iron"]-ShieldAdva.iron
+                        Resources["gold"]=Resources["gold"]-ShieldAdva.gold
+                   else:
+                    print("Not enough materials!")          
             #ARMOR            
         elif answer == "3":
                 print("Please choose the type of armor")
@@ -645,38 +701,63 @@ def CraftingItems():
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                             #helmetini
+                           print(Recipes["HelmetIni"])  
+                           if Resources["leather"]>=HelmetIni.leather and Resources["iron"]>=HelmetIni.iron: 
                             if craftingattempt >= HelmetIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-HelmetIni.leather
+                                Resources["iron"]=Resources["iron"]-HelmetIni.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+10
 
                             elif craftingattempt < HelmetIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-HelmetIni.leather
+                                Resources["iron"]=Resources["iron"]-HelmetIni.iron
+                           else:
+                            print("Not enough materials!")     
                         if Choose=="2":
                             #helmetint
+                           print(Recipes["HelmetInter"])  
+                           if Resources["leather"]>=HelmetInter.leather and Resources["iron"]>=HelmetInter.iron: 
                             if craftingattempt >= HelmetInter.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-HelmetInter.leather
+                                Resources["iron"]=Resources["iron"]-HelmetInter.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+15
 
                             elif craftingattempt < HelmetInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
-                                #remover os items do inventario    
+                                #remover os items do inventario 
+                                Resources["leather"]=Resources["leather"]-HelmetIni.leather
+                                Resources["iron"]=Resources["iron"]-HelmetIni.iron
+                           else:
+                            print("Not enough materials!")         
                         if Choose=="3":
                             #HelmetAdv
+                           print(Recipes["HelmetAdva"])  
+                           if Resources["leather"]>=HelmetAdva.leather and Resources["iron"]>=HelmetAdva.iron and Resources["gold"]>=HelmetAdva.gold: 
                             if craftingattempt >= HelmetAdva.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-HelmetAdva.leather
+                                Resources["iron"]=Resources["iron"]-HelmetAdva.iron
+                                Resources["gold"]=Resources["gold"]-HelmetIni.gold
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+20
 
                             elif craftingattempt < HelmetAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
-
+                                Resources["leather"]=Resources["leather"]-HelmetAdva.leather
+                                Resources["iron"]=Resources["iron"]-HelmetAdva.iron
+                                Resources["gold"]=Resources["gold"]-HelmetIni.gold
+                           else:
+                            print("Not enough materials!")
 
                 elif answer2 == "2":
                         Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
@@ -684,146 +765,273 @@ def CraftingItems():
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                             #chestplateini
+                           print(Recipes["ChestplateIni"])  
+                           if Resources["leather"]>=ChestplatelIni.leather and Resources["iron"]>=ChestplatelIni.iron: 
                             if craftingattempt >= ChestplatelIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
-                                #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Resources["leather"]=Resources["leather"]-ChestplatelIni.leather
+                                Resources["iron"]=Resources["iron"]-ChestplatelIni.iron
 
+                                #dar exp ao jogador
+                                Player.exp=Player.exp+10        
                             elif craftingattempt < ChestplatelIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ChestplatelIni.leather
+                                Resources["iron"]=Resources["iron"]-ChestplatelIni.iron
+                           else:
+                            print("Not enough materials!")  
                         if Choose=="2":
                             #Chestplateint
+                           print(Recipes["ChestplateInter"])  
+                           if Resources["leather"]>=ChestplateInter.leather and Resources["iron"]>=ChestplateInter.iron: 
                             if craftingattempt >= ChestplateInter.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ChestplateInter.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateInter.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
-
+                                Player.exp=Player.exp+15
+                           
                             elif craftingattempt < ChestplateInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
-                                #remover os items do inventario    
+                                #remover os items do inventario   
+                                Resources["leather"]=Resources["leather"]-ChestplateInter.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateInter.iron
+                           else:
+                            print("Not enough materials!") 
                         if Choose=="3":
                             #ChestplateAdv
+                           print(Recipes["ChestplateAdva"])  
+                           if Resources["leather"]>=ChestplateAdva.leather and Resources["iron"]>=ChestplateAdva.iron and Resources["gold"]>=ChestplateAdva.gold: 
                             if craftingattempt >= ChestplateAdva.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ChestplateAdva.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateAdva.iron
+                                Resources["gold"]=Resources["gold"]-ChestplateAdva.gold
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+20
 
                             elif craftingattempt < ChestplateAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
-
+                                Resources["leather"]=Resources["leather"]-ChestplateAdva.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateAdva.iron
+                                Resources["gold"]=Resources["gold"]-ChestplateAdva.gold
+                           else:
+                            print("Not enough materials!")     
                 elif answer2 == "3":
                         Choose=input("Which Leggins do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                             #legginsini
+                           print(Recipes["LegginsIni"])  
+                           if Resources["leather"]>=LegginsIni.leather and Resources["iron"]>=LegginsIni.iron: 
                             if craftingattempt >= LegginsIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-LegginsIni.leather
+                                Resources["iron"]=Resources["iron"]-LegginsIni.iron
+
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+10
 
                             elif craftingattempt < LegginsIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-LegginsIni.leather
+                                Resources["iron"]=Resources["iron"]-LegginsIni.iron
+                           else:
+                            print("Not enough materials!")     
                         if Choose=="2":
-                            #legginsint
+                            #legginsinter
+                           print(Recipes["LegginsInter"])  
+                           if Resources["leather"]>=LegginsInter.leather and Resources["iron"]>=LegginsInter.iron: 
                             if craftingattempt >= LegginsInter.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-LegginsInter.leather
+                                Resources["iron"]=Resources["iron"]-LegginsInter.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
-
+                                Player.exp=Player.exp+15
                             elif craftingattempt < LegginsInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario    
+                                Resources["leather"]=Resources["leather"]-LegginsInter.leather
+                                Resources["iron"]=Resources["iron"]-LegginsInter.iron
+                           else:
+                            print("Not enough materials!")     
                         if Choose=="3":
                             #legginsAdv
+                           print(Recipes["LegginsAdva"])  
+                           if Resources["leather"]>=LegginsAdva.leather and Resources["iron"]>=LegginsAdva.iron and Resources["gold"]>=LegginsAdva.gold: 
                             if craftingattempt >= LegginsAdva.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-LegginsAdva.leather
+                                Resources["iron"]=Resources["iron"]-LegginsAdva.iron
+                                Resources["gold"]=Resources["gold"]-LegginsAdva.gold
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+20
 
                             elif craftingattempt < LegginsAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario        
-
+                                Resources["leather"]=Resources["leather"]-LegginsAdva.leather
+                                Resources["iron"]=Resources["iron"]-LegginsAdva.iron
+                                Resources["gold"]=Resources["gold"]-LegginsAdva.gold
+                           else:
+                            print("Not enough materials!")
                 elif answer2 == "4":
                         Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                             #shoesini
+                           print(Recipes["ShoesIni"])  
+                           if Resources["leather"]>=ShoesIni.leather and Resources["iron"]>=ShoesIni.iron: 
                             if craftingattempt >= ShoesIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ShoesIni.leather
+                                Resources["iron"]=Resources["iron"]-ShoesIni.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
-
+                                Player.exp=Player.exp+10
                             elif craftingattempt < ShoesIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ShoesIni.leather
+                                Resources["iron"]=Resources["iron"]-ShoesIni.iron
+                           else:
+                            print("Not enough materials!")     
                         if Choose=="2":
                             #shoesint
+                           print(Recipes["ShoesInter"])  
+                           if Resources["leather"]>=ShoesInter.leather and Resources["iron"]>=ShoesInter.iron: 
                             if craftingattempt >= ShoesInter.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ShoesInter.leather
+                                Resources["iron"]=Resources["iron"]-ShoesInter.iron
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+15
 
                             elif craftingattempt < ShoesInter.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
-                                #remover os items do inventario    
+                                #remover os items do inventario  
+                                Resources["leather"]=Resources["leather"]-ShoesInter.leather
+                                Resources["iron"]=Resources["iron"]-ShoesInter.iron
+                           else:
+                            print("Not enough materials!")  
                         if Choose=="3":
                             #shoesAdv
+                           print(Recipes["ShoesAdva"])  
+                           if Resources["leather"]>=ShoesAdva.leather and Resources["iron"]>=ShoesAdva.iron and Resources["gold"]>=ShoesAdva.gold: 
                             if craftingattempt >= ShoesAdva.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
+                                Resources["leather"]=Resources["leather"]-ShoesAdva.leather
+                                Resources["iron"]=Resources["iron"]-ShoesAdva.iron
+                                Resources["gold"]=Resources["gold"]-ShoesAdva.gold
                                 #dar exp ao jogador
-                                Player.exp=Player.exp+1
+                                Player.exp=Player.exp+20
 
                             elif craftingattempt < ShoesAdva.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario   
+                                Resources["leather"]=Resources["leather"]-ShoesAdva.leather
+                                Resources["iron"]=Resources["iron"]-ShoesAdva.iron
+                                Resources["gold"]=Resources["gold"]-ShoesAdva.gold
+                           else:
+                            print("Not enough materials!")     
         elif answer == "4":
-                Choose=input("Which Bow do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                Choose=input("Which Bow do you wish to create Beginner(1),Intermediate(2),Advanced(3) or Arrows(4)?")
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
                     #BowIni
+                   print(Recipes["BowIni"])  
+                   if Resources["wood"]>=BowIni.wood and Resources["leather"]>=BowIni.leather: 
                     if craftingattempt >= BowIni.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["leather"]=Resources["leather"]-BowIni.leather
+                        Resources["wood"]=Resources["wood"]-BowIni.wood
                         #dar exp ao jogador
+                        Player.exp=Player.exp+10
                     elif craftingattempt < BowIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
+                        Resources["leather"]=Resources["leather"]-BowIni.leather
+                        Resources["wood"]=Resources["wood"]-BowIni.wood
+                   else:
+                    print("not enough materials!")      
                 if Choose=="2":
                     #BowInt
+                   print(Recipes["BowInter"])  
+                   if Resources["wood"]>=BowInter.wood and Resources["leather"]>=BowInter.leather and Resources["iron"]>=BowInter.iron: 
                     if craftingattempt >= BowInter.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["leather"]=Resources["leather"]-BowInter.leather
+                        Resources["wood"]=Resources["wood"]-BowInter.wood
+                        Resources["iron"]=Resources["iron"]-BowInter.iron
                         #dar exp ao jogador
+                        Player.exp=Player.exp+15
                     elif craftingattempt < BowInter.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
-                        #remover os items do inventario    
+                        #remover os items do inventario   
+                        Resources["leather"]=Resources["leather"]-BowInter.leather
+                        Resources["wood"]=Resources["wood"]-BowInter.wood
+                        Resources["iron"]=Resources["iron"]-BowInter.iron
+                   else:
+                    print("Not enough materials!")       
                 if Choose=="3":
                     #BowAdv
+                   print(Recipes["BowAdva"])  
+                   if Resources["leather"]>=BowAdva.leather and Resources["iron"]>=BowAdva.iron and Resources["gold"]>=BowAdva.gold: 
                     if craftingattempt >= BowAdva.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
                         #remover os items do inventario
+                        Resources["leather"]=Resources["leather"]-BowAdva.leather
+                        Resources["gold"]=Resources["gold"]-BowAdva.gold
+                        Resources["iron"]=Resources["iron"]-BowAdva.iron
                         #dar exp ao jogador
+                        Player.exp=Player.exp+20
                     elif craftingattempt < BowAdva.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
-                elif answer2 == "5":
+                        Resources["leather"]=Resources["leather"]-BowAdva.leather
+                        Resources["gold"]=Resources["gold"]-BowAdva.gold
+                        Resources["iron"]=Resources["iron"]-BowAdva.iron
+                   else:
+                    print("Not enough materials")     
+                if Choose=="4":
+                    #Arrows
+                   print(Recipes["Arrows"])  
+                   if Resources["wood"]>=Arrows.wood and Resources["iron"]>=Arrows.iron: 
+                    if craftingattempt >= Arrows.SuccessRating:
+                        print("Done and Done!!! "+str(craftingattempt))
+                        #remover os items do inventario
+                        Resources["iron"]=Resources["iron"]-Arrows.iron
+                        Resources["wood"]=Resources["wood"]-Arrows.wood
+                    
+                        #dar exp ao jogador
+                        Player.exp=Player.exp+15
+                    elif craftingattempt < Arrows.SuccessRating:  
+                        print("Not Done! "+str(craftingattempt)) 
+                        #remover os items do inventario    
+                        Resources["iron"]=Resources["iron"]-Arrows.iron
+                        Resources["wood"]=Resources["wood"]-Arrows.wood   
+                   else:
+                    print("Not enough materials!")       
+        elif answer2 == "5":
                         aux = False
+        else:
+            print("Not found!")                
 
 CraftingItems()
 
