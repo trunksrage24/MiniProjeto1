@@ -8,11 +8,10 @@
 5º commit - criaçao de sistema de npcs com personalidades para comprar items
 6º commit - "still finishing npc function; still need to apply to main code: removing resource spent on crafting, 
             adding and/or removing money, updating lists of items (and their amounts) and recipes"
+7º commit - completou se funcao de comprar recursos, funcao comprar receitas esta quase concluida (missing a couple ifs)
 
-
-#falta remover os recursos usados em cada craft e ter um inventario para recursos
-#falta fazer uma lista com as receitas que se vao comprando
-#funcao de buy esta incompleta
+#falta remover os recursos usados em cada craft
+#funcao de buy recipes esta incompleta
 #fazer um while que englobe as 3 main functions (buy resource and recipe, craft items and sell items) para atualizar cada dia
 
 4 recursos - iron, gold, leather, wood e gems (3 tipos)
