@@ -28,7 +28,9 @@ class Player:
     totalgold=5000
     exp=0
     level=1
-    aux=100
+    TotalReceitas=0        
+    day=1
+    auxvar=False
 
 class Swords(Item):
     #3 espadas
@@ -479,17 +481,51 @@ Recipes= {
     "Arrows" : "You need: 3 wood and 1 iron" # 165
 }
 
-TotalReceitas=0        
+Recipestobuy= {
+    #Beginner(1),Intermediate(2) or Advanced(3)?
+        "1":["Sword Begginer",150],
+        "2":["Sword Intermediate",1000],
+        "3":["Sword Advanced",3000],
+
+        "4":["Shield Beginner",150],
+        "5":["Shield Intermediate",1000],
+        "6":["Shield Advanced",3000],
+
+        "7":["Helmet Beginner",150],
+        "8":["Helmet Intermediate",1000],
+        "9":["Helmet Advanced",3000],
+
+        "10":["Chestplate Beginner",150],
+        "11":["Chestplate Intermediate",1000],
+        "12":["Chestplate Advanced",3000],
+
+        "13":["Leggins Beginner",150],
+        "14":["Leggins Intermediate",1000],
+        "15":["Leggins Advanced",3000],
+
+        "16":["Shoes Beginner",150],
+        "17":["Shoes Intermediate",1000],
+        "18":["Shoes Advanced",3000],
+
+        "19":["Bow Beginner",150],
+        "20":["Bow Intermediate",1000],
+        "21":["Bow Advanced",3000],
+
+        "22":["Arrows",150]
 
 
 
-day=1
 
-print("Day "+str(day))
+}
+
+Recipesbought={
+
+}
+print("Day "+str(Player.day))
 print("Level "+str(Player.level))
 print("EXP "+str(Player.exp))
 print("Money: "+str(Player.totalgold))
-print("Total Recipes: "+str(TotalReceitas))
+print("Total Recipes: "+str(Player.TotalReceitas))
 
 def BuyResourceRecipes():
     print("Buy Resources/Recipes")
@@ -511,7 +547,6 @@ def BuyResourceRecipes():
                     Resources["wood"]=Resources["wood"]+ResourcesQuantity
             elif Player.totalgold<ResourcesAmount:
                     print("You dont have enought gold to buy this product!")
-
 
         elif n1=="2":
             ResourcesAmount=int(input("How much Leather do you wish to buy for "+str(ResourcesPrice["leather"])+"$? "))
@@ -547,12 +582,40 @@ def BuyResourceRecipes():
                 print("Current Gold:"+str(Player.totalgold))
                 Resources["gold"]=Resources["gold"]+ResourcesQuantity
             elif Player.totalgold<ResourcesAmount:
-                    print("You dont have enought gold to buy this product!")    
+                print("You dont have enought gold to buy this product!")    
 
         elif n1=="5":
-            print("Here recipes") 
-            #puxar recipes aqui   
+          
 
+            print("Here recipes")   
+            #puxar recipes aqui
+            if Player.auxvar==False:
+                item1 = random.choice(list(Recipestobuy.items()))
+                item2 = random.choice(list(Recipestobuy.items()))
+                item3 = random.choice(list(Recipestobuy.items()))
+            print("Recipes to buy: "+str(item1[1][0])+"(1),"+str(item2[1][0])+"(2),"+str(item3[1][0])+"(3) or leave(4)")
+            choice=input("Which do you wish to buy?")
+            Player.auxvar=True
+            if choice=="1":
+                Recipesbought[item1[0]] = item1[1]
+                Player.totalgold=Player.totalgold-item1[1][1]
+                print("Bought: "+str(item1[1][0]))
+                print("Current Wealth: "+str(Player.totalgold))
+                Recipestobuy.pop(item1[0])
+
+            elif choice=="2":
+                Recipesbought[item2[0]] = item2[1]
+                Player.totalgold=Player.totalgold-item2[1][1]
+                print("Bought: "+str(item2[1][0]))
+                print("Current Wealth: "+str(Player.totalgold))
+                Recipestobuy.pop(item2[0]) 
+
+            elif choice=="3":
+                Recipesbought[item3[0]] = item3[1]
+                Player.totalgold=Player.totalgold-item3[1][1]
+                print("Bought: "+str(item3[1][0]))
+                print("Current Wealth: "+str(Player.totalgold))
+                Recipestobuy.pop(item3[0])                 
         elif n1=="6":
             aux = False
 
@@ -602,6 +665,7 @@ def CraftingItems():
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
+                 if "1" in Recipesbought:  #AQUI
                     #SwordIni
                   print(Recipes["SwordIni"])
                  
