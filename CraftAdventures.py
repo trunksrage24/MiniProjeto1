@@ -623,7 +623,7 @@ def BuyResourceRecipes(bought):
           #para o while                
         if n1=="6":
             aux = False
-
+#chama função, passa a variavel para verificar se o jogador comprou ou não uma receita
 BuyResourceRecipes(bought)
 def levelup():
     #função para aumentar o nivel se o exp for maior que o respetivo valor
