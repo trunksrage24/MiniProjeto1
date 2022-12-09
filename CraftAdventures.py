@@ -27,8 +27,7 @@ class Player:
     name=""
     totalgold=5000
     exp=0
-    level=1
-    TotalReceitas=0        
+    level=1 
     day=1
     auxvar=False
 
@@ -513,12 +512,14 @@ Recipestobuy= {
         "22":["Arrows",150]
 }
 Recipesbought={
+        "1":["Sword Begginer",150],
+        "2":["Sword Intermediate",1000],
+        "3":["Sword Advanced",3000],
 }
 print("Day "+str(Player.day))
 print("Level "+str(Player.level))
 print("EXP "+str(Player.exp))
 print("Money: "+str(Player.totalgold))
-print("Total Recipes: "+str(Player.TotalReceitas))
 bought=False
 def BuyResourceRecipes(bought):
     print("Buy Resources/Recipes")
@@ -579,8 +580,8 @@ def BuyResourceRecipes(bought):
                 print("You dont have enought gold to buy this product!")    
         elif bought==False: 
          if n1=="5":
-            
-            print("Here recipes")   
+            print("Here recipes") 
+            print("Begginer for 150$, Intermediate for 1000$ and Advanced for 3000$!! WE DONT GIVE DISCOUNTS!")  
             #puxar recipes aqui
             if Player.auxvar==False:
                 item1 = random.choice(list(Recipestobuy.items()))
@@ -611,42 +612,50 @@ def BuyResourceRecipes(bought):
                 Recipestobuy.pop(item3[0])           
                 bought=True 
         elif bought==True:
-            print("Already bought a recipe! Therefore you cant buy anymore today!")             
-        elif n1=="6":
+                print("Already bought a recipe! Therefore you cant buy anymore today!")             
+        if n1=="6":
             aux = False
 
 BuyResourceRecipes(bought)
 def levelup():
-    if Player.exp>=100:
+    if Player.exp>=50:
         Player.level=Player.level+1
         print("Level up!")
-    if Player.exp>=200:
+    if Player.exp>=100:
         Player.level=Player.level+1  
         print("Level up!")
+    if Player.exp>=150:
+        Player.level=Player.level+1   
+        print("Level up!")
+    if Player.exp>=200:
+        Player.level=Player.level+1   
+        print("Level up!")  
+    if Player.exp>=250:
+        Player.level=Player.level+1   
+        print("Level up!")
     if Player.exp>=300:
+        Player.level=Player.level+1 
+        print("Level up!")      
+    if Player.exp>=350:
         Player.level=Player.level+1   
         print("Level up!")
     if Player.exp>=400:
-        Player.level=Player.level+1   
-        print("Level up!")  
+        Player.level=Player.level+1 
+        print("Level up!")
     if Player.exp>=500:
-        Player.level=Player.level+1   
-        print("Level up!")
-    if Player.exp>=600:
-        Player.level=Player.level+1 
-        print("Level up!")      
-    if Player.exp>=700:
-        Player.level=Player.level+1   
-        print("Level up!")
-    if Player.exp>=800:
-        Player.level=Player.level+1 
-        print("Level up!")
-    if Player.exp>=900:
         Player.level=Player.level+1  
         print("Level up!")
-    if Player.exp>=1000:
+    if Player.exp>=550:
         Player.level=Player.level+1      
         print("Level up!")    
+
+def verifyrecipes(choose):
+    if choose in Recipesbought:
+        print("Crafting!!")
+        choose=True
+        return choose
+    else:
+        print("Dont have the recipe for this item!!")    
 
 
 def CraftingItems():
@@ -661,7 +670,7 @@ def CraftingItems():
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
-                 if "1" in Recipesbought:  #AQUI
+                 if verifyrecipes(Choose)==True:  #AQUI
                     #SwordIni
                   print(Recipes["SwordIni"])
                  
@@ -681,7 +690,9 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-SwordIni.leather
                   else:
                     print("Not enough materials!")      
+                               
                 if Choose=="2":
+                 if verifyrecipes(Choose)==True:  
                     #SwordInt
                   print(Recipes["SwordInter"]) 
                   if Resources["wood"]>=SwordInter.wood and Resources["leather"]>=SwordInter.leather and Resources["iron"]>=SwordInter.iron:    
@@ -703,7 +714,9 @@ def CraftingItems():
                         Resources["iron"]=Resources["iron"]-SwordInter.iron  
                   else:
                     print("Not enough materials!")      
-                if Choose=="3":
+                
+                if Choose=="3": 
+                 if verifyrecipes(Choose)==True:      
                     #SwordAdv
                    print(Recipes["SwordAdva"])   
                    if Resources["gold"]>=SwordAdva.gold and Resources["iron"]>=SwordAdva.iron: 
@@ -721,15 +734,15 @@ def CraftingItems():
                         Resources["gold"]=Resources["gold"]-SwordAdva.gold
                         Resources["iron"]=Resources["iron"]-SwordAdva.iron    
                    else:
-                    print("Not enough materials!") 
-
-
+                    print("Not enough materials!")
 
         elif answer == "2":
                 Choose=input("Which Shield do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
+                 Choose="4"  
+                 if verifyrecipes(Choose)==True:   
                     #ShieldInit
                   print(Recipes["ShieldIni"])   
                   if Resources["wood"]>=ShieldIni.wood and Resources["leather"]>=ShieldIni.leather:  
@@ -749,6 +762,8 @@ def CraftingItems():
                   else:
                     print("Not enough materials!")        
                 if Choose=="2":
+                 Choose="5"  
+                 if verifyrecipes(Choose)==True:    
                     #ShieldInt
                    print(Recipes["ShieldInter"])  
                    if Resources["wood"]>=ShieldInter.wood and Resources["leather"]>=ShieldInter.leather and Resources["iron"]>=ShieldInter.iron: 
@@ -770,6 +785,8 @@ def CraftingItems():
                    else:
                     print("Not enough materials!")      
                 if Choose=="3":
+                 Choose="6"  
+                 if verifyrecipes(Choose)==True:   
                     #ShieldAdv
                    print(Recipes["ShieldAdva"])  
                    if Resources["leather"]>=ShieldAdva.leather and Resources["iron"]>=ShieldAdva.iron and Resources["gold"]>=ShieldAdva.gold: 
@@ -800,6 +817,8 @@ def CraftingItems():
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                             #helmetini
+                         Choose="7"  
+                         if verifyrecipes(Choose)==True:   
                            print(Recipes["HelmetIni"])  
                            if Resources["leather"]>=HelmetIni.leather and Resources["iron"]>=HelmetIni.iron: 
                             if craftingattempt >= HelmetIni.SuccessRating:
@@ -819,6 +838,8 @@ def CraftingItems():
                             print("Not enough materials!")     
                         if Choose=="2":
                             #helmetint
+                         Choose="8"  
+                         if verifyrecipes(Choose)==True:    
                            print(Recipes["HelmetInter"])  
                            if Resources["leather"]>=HelmetInter.leather and Resources["iron"]>=HelmetInter.iron: 
                             if craftingattempt >= HelmetInter.SuccessRating:
@@ -838,6 +859,8 @@ def CraftingItems():
                             print("Not enough materials!")         
                         if Choose=="3":
                             #HelmetAdv
+                         Choose="9"  
+                         if verifyrecipes(Choose)==True:   
                            print(Recipes["HelmetAdva"])  
                            if Resources["leather"]>=HelmetAdva.leather and Resources["iron"]>=HelmetAdva.iron and Resources["gold"]>=HelmetAdva.gold: 
                             if craftingattempt >= HelmetAdva.SuccessRating:
@@ -863,8 +886,10 @@ def CraftingItems():
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
+                         Choose="10"  
+                         if verifyrecipes(Choose)==True:   
                             #chestplateini
-                           print(Recipes["ChestplateIni"])  
+                           print(Recipes["ChestplatelIni"])  
                            if Resources["leather"]>=ChestplatelIni.leather and Resources["iron"]>=ChestplatelIni.iron: 
                             if craftingattempt >= ChestplatelIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
@@ -883,6 +908,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")  
                         if Choose=="2":
+                         Choose="11"  
+                         if verifyrecipes(Choose)==True:   
                             #Chestplateint
                            print(Recipes["ChestplateInter"])  
                            if Resources["leather"]>=ChestplateInter.leather and Resources["iron"]>=ChestplateInter.iron: 
@@ -902,6 +929,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!") 
                         if Choose=="3":
+                         Choose="12"  
+                         if verifyrecipes(Choose)==True:   
                             #ChestplateAdv
                            print(Recipes["ChestplateAdva"])  
                            if Resources["leather"]>=ChestplateAdva.leather and Resources["iron"]>=ChestplateAdva.iron and Resources["gold"]>=ChestplateAdva.gold: 
@@ -927,6 +956,8 @@ def CraftingItems():
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
+                         Choose="13"  
+                         if verifyrecipes(Choose)==True:   
                             #legginsini
                            print(Recipes["LegginsIni"])  
                            if Resources["leather"]>=LegginsIni.leather and Resources["iron"]>=LegginsIni.iron: 
@@ -947,6 +978,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")     
                         if Choose=="2":
+                         Choose="14"  
+                         if verifyrecipes(Choose)==True:  
                             #legginsinter
                            print(Recipes["LegginsInter"])  
                            if Resources["leather"]>=LegginsInter.leather and Resources["iron"]>=LegginsInter.iron: 
@@ -966,6 +999,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")     
                         if Choose=="3":
+                         Choose="15"  
+                         if verifyrecipes(Choose)==True:   
                             #legginsAdv
                            print(Recipes["LegginsAdva"])  
                            if Resources["leather"]>=LegginsAdva.leather and Resources["iron"]>=LegginsAdva.iron and Resources["gold"]>=LegginsAdva.gold: 
@@ -991,6 +1026,8 @@ def CraftingItems():
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
+                         Choose="16"  
+                         if verifyrecipes(Choose)==True:   
                             #shoesini
                            print(Recipes["ShoesIni"])  
                            if Resources["leather"]>=ShoesIni.leather and Resources["iron"]>=ShoesIni.iron: 
@@ -1010,6 +1047,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")     
                         if Choose=="2":
+                         Choose="17"  
+                         if verifyrecipes(Choose)==True:   
                             #shoesint
                            print(Recipes["ShoesInter"])  
                            if Resources["leather"]>=ShoesInter.leather and Resources["iron"]>=ShoesInter.iron: 
@@ -1029,6 +1068,8 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")  
                         if Choose=="3":
+                         Choose="18"  
+                         if verifyrecipes(Choose)==True:   
                             #shoesAdv
                            print(Recipes["ShoesAdva"])  
                            if Resources["leather"]>=ShoesAdva.leather and Resources["iron"]>=ShoesAdva.iron and Resources["gold"]>=ShoesAdva.gold: 
@@ -1054,6 +1095,8 @@ def CraftingItems():
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
+                 Choose="19"  
+                 if verifyrecipes(Choose)==True:   
                     #BowIni
                    print(Recipes["BowIni"])  
                    if Resources["wood"]>=BowIni.wood and Resources["leather"]>=BowIni.leather: 
@@ -1073,6 +1116,8 @@ def CraftingItems():
                    else:
                     print("not enough materials!")      
                 if Choose=="2":
+                 Choose="20"  
+                 if verifyrecipes(Choose)==True:   
                     #BowInt
                    print(Recipes["BowInter"])  
                    if Resources["wood"]>=BowInter.wood and Resources["leather"]>=BowInter.leather and Resources["iron"]>=BowInter.iron: 
@@ -1094,6 +1139,8 @@ def CraftingItems():
                    else:
                     print("Not enough materials!")       
                 if Choose=="3":
+                 Choose="21"  
+                 if verifyrecipes(Choose)==True:   
                     #BowAdv
                    print(Recipes["BowAdva"])  
                    if Resources["leather"]>=BowAdva.leather and Resources["iron"]>=BowAdva.iron and Resources["gold"]>=BowAdva.gold: 
@@ -1115,6 +1162,8 @@ def CraftingItems():
                    else:
                     print("Not enough materials")     
                 if Choose=="4":
+                 Choose="22"  
+                 if verifyrecipes(Choose)==True:   
                     #Arrows
                    print(Recipes["Arrows"])  
                    if Resources["wood"]>=Arrows.wood and Resources["iron"]>=Arrows.iron: 
