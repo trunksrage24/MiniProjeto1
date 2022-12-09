@@ -521,6 +521,10 @@ print("Level "+str(Player.level))
 print("EXP "+str(Player.exp))
 print("Money: "+str(Player.totalgold))
 bought=False
+#######################CHAMAR FUNCTION QUANDO SE VENDE OS ITEMS NA FUNCTION SELLINGITEMS###########
+def VerifyWin():
+    if Player.totalgold==100000:
+        print("You Win!!"+str(Player.totalgold))
 def BuyResourceRecipes(bought):
     print("Buy Resources/Recipes")
     aux=True
@@ -1373,3 +1377,4 @@ def SellingItems():
         pass
 
 SellingItems()
+
