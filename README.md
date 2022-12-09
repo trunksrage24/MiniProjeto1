@@ -61,3 +61,21 @@ avançado - 6000
 arrows - 30 por 2250 gold
 
 
+Relatório:
+    
+    Embora cada um tenha ficado responsável por fazer cada funçao e/ou classes, ambos ajudamos mutuamente tanto na parte de programar como em correções (de erros no codigo, missing coments, má legibilidade devido a falta de identações, etc).
+
+    João :
+        fez Função do buy items and recipes,
+        fez função do craft items,
+        fez função de verify win,
+        fez função de level up,
+        fez função de verify recipes,
+        fez inventarios.
+    
+    Vitor:
+        fez função selling items,
+        fez class todas,
+        fez dicionário com receitas,
+        fez organização de código (idents e coments)
+        fez relatório.
