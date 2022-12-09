@@ -482,46 +482,6 @@ Recipes= {
 }
 Recipestobuy= {
     #Beginner(1),Intermediate(2) or Advanced(3)?
-        "1":"Sword Begginer",
-        "2":"Sword Intermediate",
-        "3":"Sword Advanced",
-
-        "4":"Shield Beginner",
-        "5":"Shield Intermediate",
-        "6":"Shield Advanced",
-
-        "7":"Helmet Beginner",
-        "8":"Helmet Intermediate",
-        "9":"Helmet Advanced",
-
-        "10":"Chestplate Beginner",
-        "11":"Chestplate Intermediate",
-        "12":"Chestplate Advanced",
-
-        "13":"Leggins Beginner",
-        "14":"Leggins Intermediate",
-        "15":"Leggins Advanced",
-
-        "16":"Shoes Beginner",
-        "17":"Shoes Intermediate",
-        "18":"Shoes Advanced",
-
-        "19":"Bow Beginner",
-        "20":"Bow Intermediate",
-        "21":"Bow Advanced",
-
-        "22":"Arrows"
-
-
-
-
-}
-Recipesbought={
-
-}
-
-Recipestobuy= {
-    #Beginner(1),Intermediate(2) or Advanced(3)?
         "1":["Sword Begginer",150],
         "2":["Sword Intermediate",1000],
         "3":["Sword Advanced",3000],
@@ -551,25 +511,20 @@ Recipestobuy= {
         "21":["Bow Advanced",3000],
 
         "22":["Arrows",150]
-
-
-
-
 }
-
 Recipesbought={
-
 }
 print("Day "+str(Player.day))
 print("Level "+str(Player.level))
 print("EXP "+str(Player.exp))
 print("Money: "+str(Player.totalgold))
 print("Total Recipes: "+str(Player.TotalReceitas))
-
-def BuyResourceRecipes():
+bought=False
+def BuyResourceRecipes(bought):
     print("Buy Resources/Recipes")
     aux=True
     while aux:
+        
         print("Wood: "+str(Resources["wood"]))
         print("Leather: "+str(Resources["leather"]))
         print("Iron: "+str(Resources["iron"]))
@@ -622,9 +577,9 @@ def BuyResourceRecipes():
                 Resources["gold"]=Resources["gold"]+ResourcesQuantity
             elif Player.totalgold<ResourcesAmount:
                 print("You dont have enought gold to buy this product!")    
-
-        elif n1=="5":
-
+        elif bought==False: 
+         if n1=="5":
+            
             print("Here recipes")   
             #puxar recipes aqui
             if Player.auxvar==False:
@@ -640,24 +595,27 @@ def BuyResourceRecipes():
                 print("Bought: "+str(item1[1][0]))
                 print("Current Wealth: "+str(Player.totalgold))
                 Recipestobuy.pop(item1[0])
-
+                bought=True
             elif choice=="2":
                 Recipesbought[item2[0]] = item2[1]
                 Player.totalgold=Player.totalgold-item2[1][1]
                 print("Bought: "+str(item2[1][0]))
                 print("Current Wealth: "+str(Player.totalgold))
                 Recipestobuy.pop(item2[0]) 
-
+                bought=True
             elif choice=="3":
                 Recipesbought[item3[0]] = item3[1]
                 Player.totalgold=Player.totalgold-item3[1][1]
                 print("Bought: "+str(item3[1][0]))
                 print("Current Wealth: "+str(Player.totalgold))
-                Recipestobuy.pop(item3[0])                 
+                Recipestobuy.pop(item3[0])           
+                bought=True 
+        elif bought==True:
+            print("Already bought a recipe! Therefore you cant buy anymore today!")             
         elif n1=="6":
             aux = False
 
-BuyResourceRecipes()
+BuyResourceRecipes(bought)
 def levelup():
     if Player.exp>=100:
         Player.level=Player.level+1
