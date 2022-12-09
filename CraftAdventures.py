@@ -639,7 +639,7 @@ def BuyResourceRecipes(bought):
                     print("Current Wealth: " + str(Player.totalgold))
                     Recipestobuy.pop(item1[0])
                     bought = True
-                
+                    
                 elif choice == "2":
                     Recipesbought[item2[0]] = item2[1]
                     Player.totalgold -= item2[1][1]
@@ -647,7 +647,7 @@ def BuyResourceRecipes(bought):
                     print("Current Wealth: " + str(Player.totalgold))
                     Recipestobuy.pop(item2[0]) 
                     bought = True
-                
+                    
                 elif choice == "3":
                     Recipesbought[item3[0]] = item3[1]
                     Player.totalgold -= item3[1][1]
@@ -655,7 +655,7 @@ def BuyResourceRecipes(bought):
                     print("Current Wealth: " + str(Player.totalgold))
                     Recipestobuy.pop(item3[0])           
                     bought = True 
-        
+                   
         #baseado numa variavel global verifica se o jogador já comprou um item, se sim diz que já comprou o limite receitas para aquele dia
         elif bought == True:
                 print("Already bought a recipe! Therefore you cant buy anymore today!")   
@@ -1452,3 +1452,4 @@ while auxwin==False:
     CraftingItems()
     #SellingItems()
     Player.day=Player.day+1
+    Player.auxvar = False
