@@ -235,7 +235,7 @@ class BodyArmor(Armors):
         print("Sell Value" + self.gold)
         
 #armadura corpo iniciante
-class ChestplatelIni(BodyArmor):
+class ChestplateIni(BodyArmor):
     name = "ChestplateIni"
     leather=2
     iron=1
@@ -502,7 +502,7 @@ Recipes= {
     "HelmetInter" : "You need: 2 leathers and 3 irons.", #340
     "HelmetAdva" : "You need: 3 leathers, 3 irons and 2 golds.", #1 095
 
-    "ChestplatelIni" : "You need: 2 leather and 1 iron.", #160
+    "ChestplateIni" : "You need: 2 leather and 1 iron.", #160
     "ChestplateInter" : "You need: 3 leathers and 2 irons.", #285
     "ChestplateAdva" : "You need: 4 leathers, 3 irons and 4 golds.", #1 130
     
@@ -726,6 +726,7 @@ def CraftingItems():
                         #remover os items do inventario
                         Resources["wood"]=Resources["wood"]-SwordIni.wood
                         Resources["leather"]=Resources["leather"]-SwordIni.leather
+                        SwordIni.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
                         levelup()
@@ -750,7 +751,7 @@ def CraftingItems():
                         Resources["wood"]=Resources["wood"]-SwordInter.wood
                         Resources["leather"]=Resources["leather"]-SwordInter.leather
                         Resources["iron"]=Resources["iron"]-SwordInter.iron
-                        
+                        SwordInter.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
                         levelup()
@@ -773,6 +774,7 @@ def CraftingItems():
                         #remover os items do inventario
                         Resources["gold"]=Resources["gold"]-SwordAdva.gold
                         Resources["iron"]=Resources["iron"]-SwordAdva.iron
+                        SwordAdva.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+30
                         levelup()
@@ -800,6 +802,7 @@ def CraftingItems():
                         #remover os items do inventario
                         Resources["wood"]=Resources["wood"]-ShieldIni.wood
                         Resources["leather"]=Resources["leather"]-ShieldIni.leather
+                        ShieldIni.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
                         levelup()
@@ -822,6 +825,7 @@ def CraftingItems():
                         Resources["wood"]=Resources["wood"]-ShieldInter.wood
                         Resources["leather"]=Resources["leather"]-ShieldInter.leather
                         Resources["iron"]=Resources["iron"]-ShieldInter.iron
+                        ShieldInter.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
                         levelup()
@@ -845,6 +849,7 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-ShieldAdva.leather
                         Resources["iron"]=Resources["iron"]-ShieldAdva.iron
                         Resources["gold"]=Resources["gold"]-ShieldAdva.gold
+                        ShieldAdva.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+20
                         levelup()
@@ -877,6 +882,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-HelmetIni.leather
                                 Resources["iron"]=Resources["iron"]-HelmetIni.iron
+                                HelmetIni.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
                                 levelup()
@@ -898,6 +904,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-HelmetInter.leather
                                 Resources["iron"]=Resources["iron"]-HelmetInter.iron
+                                HelmetInter.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
                                 levelup()
@@ -920,6 +927,7 @@ def CraftingItems():
                                 Resources["leather"]=Resources["leather"]-HelmetAdva.leather
                                 Resources["iron"]=Resources["iron"]-HelmetAdva.iron
                                 Resources["gold"]=Resources["gold"]-HelmetIni.gold
+                                HelmetAdva.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
                                 levelup()
@@ -933,29 +941,29 @@ def CraftingItems():
                             print("Not enough materials!")
 
                 elif answer2 == "2":
-                        Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        Choose=input("Which Chestplate do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
                          Choose="10"  
                          if verifyrecipes(Choose)==True:   
                             #chestplateini
-                           print(Recipes["ChestplatelIni"])  
-                           if Resources["leather"]>=ChestplatelIni.leather and Resources["iron"]>=ChestplatelIni.iron: 
-                            if craftingattempt >= ChestplatelIni.SuccessRating:
+                           print(Recipes["ChestplateIni"])  
+                           if Resources["leather"]>=ChestplateIni.leather and Resources["iron"]>=ChestplateIni.iron: 
+                            if craftingattempt >= ChestplateIni.SuccessRating:
                                 print("Done and Done!!! "+str(craftingattempt))
                                 #remover os items do inventario
-                                Resources["leather"]=Resources["leather"]-ChestplatelIni.leather
-                                Resources["iron"]=Resources["iron"]-ChestplatelIni.iron
-
+                                Resources["leather"]=Resources["leather"]-ChestplateIni.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateIni.iron
+                                ChestplateIni.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
                                 levelup()       
-                            elif craftingattempt < ChestplatelIni.SuccessRating:  
+                            elif craftingattempt < ChestplateIni.SuccessRating:  
                                 print("Not Done! "+str(craftingattempt)) 
                                 #remover os items do inventario
-                                Resources["leather"]=Resources["leather"]-ChestplatelIni.leather
-                                Resources["iron"]=Resources["iron"]-ChestplatelIni.iron
+                                Resources["leather"]=Resources["leather"]-ChestplateIni.leather
+                                Resources["iron"]=Resources["iron"]-ChestplateIni.iron
                            else:
                             print("Not enough materials!")  
                         if Choose=="2":
@@ -969,6 +977,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-ChestplateInter.leather
                                 Resources["iron"]=Resources["iron"]-ChestplateInter.iron
+                                ChestplateInter.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
                                 levelup()
@@ -991,6 +1000,7 @@ def CraftingItems():
                                 Resources["leather"]=Resources["leather"]-ChestplateAdva.leather
                                 Resources["iron"]=Resources["iron"]-ChestplateAdva.iron
                                 Resources["gold"]=Resources["gold"]-ChestplateAdva.gold
+                                ChestplateAdva.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
                                 levelup()
@@ -1017,7 +1027,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-LegginsIni.leather
                                 Resources["iron"]=Resources["iron"]-LegginsIni.iron
-
+                                LegginsIni.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
                                 levelup()
@@ -1039,6 +1049,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-LegginsInter.leather
                                 Resources["iron"]=Resources["iron"]-LegginsInter.iron
+                                LegginsInter.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
                                 levelup()
@@ -1061,6 +1072,7 @@ def CraftingItems():
                                 Resources["leather"]=Resources["leather"]-LegginsAdva.leather
                                 Resources["iron"]=Resources["iron"]-LegginsAdva.iron
                                 Resources["gold"]=Resources["gold"]-LegginsAdva.gold
+                                LegginsAdva.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
                                 levelup()
@@ -1073,7 +1085,7 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")
                 elif answer2 == "4":
-                        Choose=input("Which Helmet do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                        Choose=input("Which Shoes do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
                         auxrand=random.randint(1,10)
                         craftingattempt=Player.level*auxrand
                         if Choose=="1":
@@ -1087,6 +1099,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-ShoesIni.leather
                                 Resources["iron"]=Resources["iron"]-ShoesIni.iron
+                                ShoesIni.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+10
                                 levelup()
@@ -1108,6 +1121,7 @@ def CraftingItems():
                                 #remover os items do inventario
                                 Resources["leather"]=Resources["leather"]-ShoesInter.leather
                                 Resources["iron"]=Resources["iron"]-ShoesInter.iron
+                                ShoesInter.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+15
                                 levelup()
@@ -1132,6 +1146,7 @@ def CraftingItems():
                                 Resources["leather"]=Resources["leather"]-ShoesAdva.leather
                                 Resources["iron"]=Resources["iron"]-ShoesAdva.iron
                                 Resources["gold"]=Resources["gold"]-ShoesAdva.gold
+                                ShoesAdva.qt += 1
                                 #dar exp ao jogador
                                 Player.exp=Player.exp+20
                                 levelup()
@@ -1158,6 +1173,7 @@ def CraftingItems():
                         #remover os items do inventario
                         Resources["leather"]=Resources["leather"]-BowIni.leather
                         Resources["wood"]=Resources["wood"]-BowIni.wood
+                        BowIni.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
                         levelup()
@@ -1180,6 +1196,7 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-BowInter.leather
                         Resources["wood"]=Resources["wood"]-BowInter.wood
                         Resources["iron"]=Resources["iron"]-BowInter.iron
+                        BowInter.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
                         levelup()
@@ -1203,6 +1220,7 @@ def CraftingItems():
                         Resources["leather"]=Resources["leather"]-BowAdva.leather
                         Resources["gold"]=Resources["gold"]-BowAdva.gold
                         Resources["iron"]=Resources["iron"]-BowAdva.iron
+                        BowAdva.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+20
                         levelup()
@@ -1225,7 +1243,7 @@ def CraftingItems():
                         #remover os items do inventario
                         Resources["iron"]=Resources["iron"]-Arrows.iron
                         Resources["wood"]=Resources["wood"]-Arrows.wood
-                    
+                        Arrows.qt += 1
                         #dar exp ao jogador
                         Player.exp=Player.exp+15
                         levelup()
@@ -1276,22 +1294,22 @@ def SellingItems():
  
 
     elif npcNumber == 2:
-        print("Your neighbour Anna went by your shop to buy a " + str(BowInter.name) + " as gift to her son \n")
-        if BowInter.qt >= 1:
-            BowInter.qt -= 1
-            Player.totalgold += BowInter.gold
+        print("Your neighbour Anna went by your shop to buy a " + str(BowIni.name) + " as gift to her son \n")
+        if BowIni.qt >= 1:
+            BowIni.qt -= 1
+            Player.totalgold += BowIni.gold
         else:
-            print("Client left without buying.")
+            print("\n Anna left without buying anything... \n")
 
     elif npcNumber == 3:
         print("2 men enter the shop and introduce themselfs as Rodd and Todd. They are looking for a " +  str(HelmetIni.name) + " and " +  
-               str(ChestplatelIni.name) + " to train in the fields. \n")
-        if HelmetIni.qt >= 1 and ChestplatelIni.qt >= 1:
+               str(ChestplateIni.name) + " to train in the fields. \n")
+        if HelmetIni.qt >= 1 and ChestplateIni.qt >= 1:
             HelmetIni.qt -= 1
-            ChestplatelIni.qt -= 1
-            Player.totalgold += HelmetIni.gold + ChestplatelIni.gold
+            ChestplateIni.qt -= 1
+            Player.totalgold += HelmetIni.gold + ChestplateIni.gold
         else:
-            print("Client left without buying.")
+            print("\n Rodd and Todd left without buying anything... \n")
     
     elif npcNumber == 4:
         print("Heinz, the town drunk entered the shop. He wants a " + str(BowIni.name) + " and a " + str(Arrows.name) + ".")
@@ -1299,6 +1317,8 @@ def SellingItems():
             BowIni.qt -= 1
             Arrows.qt -= 1
             Player.totalgold += BowIni.gold + Arrows.gold
+        else:
+            print("\n Heinz left without buying anything... \n")
 
 auxwin=False
 while auxwin==False:
