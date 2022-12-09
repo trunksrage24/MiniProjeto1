@@ -47,7 +47,7 @@ class SwordAdva(Swords):
     gold=2
     SuccessRating=10
     qt=0
-    def __init__(self,iron,gold,SuccessRating, name):
+    def __init__(self,iron,gold,SuccessRating):
 
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
@@ -77,13 +77,15 @@ class SwordInter(Swords):
 #espada iniciante
 class SwordIni(Swords):
     name = "SwordIni"
+    sell = 5000
     wood=1
     leather=1
     SuccessRating=3
     qt=0
-    def __init__(self,wood,leather,SuccessRating, name):
+    def __init__(self,wood,leather,SuccessRating, name, sell):
         super().__init__("SwordIni", 10000)
         print(self.name + str(self.gold))
+        self.sell = sell
         self.name = name
         self.wood=wood
         self.leather=leather
@@ -138,14 +140,16 @@ class ShieldInter(Shields):
 #escudo avançado
 class ShieldAdva(Shields):
     name = "ShieldAdva"
+    sell = 50000
     leather=2
     iron=3
     gold=1
     SuccessRating=15
     qt=0
-    def __init__(self,leather,iron,gold,SuccessRating, name):
+    def __init__(self,leather,iron,gold,SuccessRating, name, sell):
         super().__init__("ShieldAdva", 10000)
         print(self.name + str(self.gold))
+        self.sell = sell
         self.name = name
         self.gold=gold
         self.leather=leather
@@ -177,14 +181,16 @@ class Helmet(Armors):
 #helmet iniciante
 class HelmetIni(Helmet):
     name = "HelmetIni"
+    sell = 2000
     leather=1
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating, name):
+    def __init__(self,leather,iron,SuccessRating, name, sell):
         super().__init__("HelmetIni", 10000)
         print(self.name + str(self.gold))
         self.name = name
+        self.sell = sell
         self.leather=leather
         self.iron=iron
         self.SuccessRating=SuccessRating
@@ -237,13 +243,15 @@ class BodyArmor(Armors):
 #armadura corpo iniciante
 class ChestplateIni(BodyArmor):
     name = "ChestplateIni"
+    sell = 4000
     leather=2
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating, name):
+    def __init__(self,leather,iron,SuccessRating, name, sell):
         super().__init__("ChestplateIni", 10000)
         print(self.name + str(self.gold))
+        self.sell = sell
         self.name = name
         self.leather=leather
         self.iron=iron
@@ -407,13 +415,15 @@ class Bow(Item):
 #bow iniciante
 class BowIni(Bow):
     name = "BowIni"
+    sell = 1000
     leather=1
     wood=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,SuccessRating, name):
+    def __init__(self,leather,SuccessRating, name, sell):
         super().__init__("BowIni", 1000)
         print(self.name + str(self.gold))
+        self.sell = sell
         self.name= name
         self.leather=leather
         self.SuccessRating=SuccessRating
@@ -458,13 +468,15 @@ class BowAdva(Bow):
 #arrows
 class Arrows(Bow):
     name = "Arrows"
+    sell = 400
     wood=3
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,wood,iron,SuccessRating, name):
+    def __init__(self,wood,iron,SuccessRating, name, sell):
         super().__init__("Arrows", 1000)
         print(self.name + str(self.gold))
+        self.sell = sell
         self.wood=wood
         self.name = name
         self.iron=iron
@@ -1282,22 +1294,25 @@ def SellingItems():
             if SwordIni.qt >= 1:    
                 SwordIni.qt -= 1
                 #aplicar 20% desconto na compra e remover o item do inventario
-                Player.totalgold += (SwordIni.gold - (SwordIni.gold * 0.2)) 
+                Player.totalgold += (SwordIni.sell - (SwordIni.sell * 0.2)) 
                 print("Bill has bought a " + str(SwordIni.name) + " from you. \n")
+            else:
+                print("\n Bill left without buying anything... \n")
 
         elif answerNPC == "n":
             if SwordIni.qt >= 1:    
                 SwordIni.qt -= 1
-                Player.totalgold += SwordIni.gold
+                Player.totalgold += SwordIni.sell
                 print("Although Bill is very angry with you he will be buying the " + str(SwordIni.name) + " from you. \n")
                 print("Bill left the shop yelling at you : MotherF*!%#+@ !!!")
- 
+            else:
+                print("\n Bill left without buying anything... \n")
 
     elif npcNumber == 2:
         print("Your neighbour Anna went by your shop to buy a " + str(BowIni.name) + " as gift to her son \n")
         if BowIni.qt >= 1:
             BowIni.qt -= 1
-            Player.totalgold += BowIni.gold
+            Player.totalgold += BowIni.sell
         else:
             print("\n Anna left without buying anything... \n")
 
@@ -1307,7 +1322,7 @@ def SellingItems():
         if HelmetIni.qt >= 1 and ChestplateIni.qt >= 1:
             HelmetIni.qt -= 1
             ChestplateIni.qt -= 1
-            Player.totalgold += HelmetIni.gold + ChestplateIni.gold
+            Player.totalgold += HelmetIni.sell + ChestplateIni.sell
         else:
             print("\n Rodd and Todd left without buying anything... \n")
     
@@ -1316,7 +1331,7 @@ def SellingItems():
         if BowIni.qt >= 1 and Arrows.qt >= 1:
             BowIni.qt -= 1
             Arrows.qt -= 1
-            Player.totalgold += BowIni.gold + Arrows.gold
+            Player.totalgold += BowIni.sell + Arrows.sell
         else:
             print("\n Heinz left without buying anything... \n")
 
