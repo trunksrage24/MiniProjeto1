@@ -14,6 +14,7 @@ import random
 
 #classe "pai"
 class Item:
+    name = ""
     def __init__(self, name, gold):
         self.name = name
         self.gold = gold
@@ -46,7 +47,7 @@ class SwordAdva(Swords):
     gold=2
     SuccessRating=10
     qt=0
-    def __init__(self,iron,gold,SuccessRating):
+    def __init__(self,iron,gold,SuccessRating, name):
 
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
@@ -75,20 +76,21 @@ class SwordInter(Swords):
 
 #espada iniciante
 class SwordIni(Swords):
+    name = "SwordIni"
     wood=1
     leather=1
     SuccessRating=3
     qt=0
-    def __init__(self,wood,leather,SuccessRating):
+    def __init__(self,wood,leather,SuccessRating, name):
         super().__init__("SwordIni", 10000)
         print(self.name + str(self.gold))
+        self.name = name
         self.wood=wood
         self.leather=leather
         self.SuccessRating=SuccessRating
     def Display(self):
         super().Display()
         
-
 #classe dados escudos
 class Shields(Item):
     #3 shields
@@ -135,14 +137,16 @@ class ShieldInter(Shields):
 
 #escudo avançado
 class ShieldAdva(Shields):
+    name = "ShieldAdva"
     leather=2
     iron=3
     gold=1
     SuccessRating=15
     qt=0
-    def __init__(self,leather,iron,gold,SuccessRating):
+    def __init__(self,leather,iron,gold,SuccessRating, name):
         super().__init__("ShieldAdva", 10000)
         print(self.name + str(self.gold))
+        self.name = name
         self.gold=gold
         self.leather=leather
         self.iron=iron
@@ -172,13 +176,15 @@ class Helmet(Armors):
         
 #helmet iniciante
 class HelmetIni(Helmet):
+    name = "HelmetIni"
     leather=1
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating):
-        super().__init__("ShieldInter", 10000)
+    def __init__(self,leather,iron,SuccessRating, name):
+        super().__init__("HelmetIni", 10000)
         print(self.name + str(self.gold))
+        self.name = name
         self.leather=leather
         self.iron=iron
         self.SuccessRating=SuccessRating
@@ -230,13 +236,15 @@ class BodyArmor(Armors):
         
 #armadura corpo iniciante
 class ChestplatelIni(BodyArmor):
+    name = "ChestplateIni"
     leather=2
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating):
+    def __init__(self,leather,iron,SuccessRating, name):
         super().__init__("ChestplateIni", 10000)
         print(self.name + str(self.gold))
+        self.name = name
         self.leather=leather
         self.iron=iron
         self.SuccessRating=SuccessRating
@@ -398,13 +406,15 @@ class Bow(Item):
 
 #bow iniciante
 class BowIni(Bow):
+    name = "BowIni"
     leather=1
     wood=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,SuccessRating):
-        super().__init__("BowIni", 10000)
+    def __init__(self,leather,SuccessRating, name):
+        super().__init__("BowIni", 1000)
         print(self.name + str(self.gold))
+        self.name= name
         self.leather=leather
         self.SuccessRating=SuccessRating
     def Display(self):
@@ -418,7 +428,7 @@ class BowInter(Bow):
     SuccessRating=10
     qt=0
     def __init__(self,leather,iron,SuccessRating):
-        super().__init__("BowInt", 10000)
+        super().__init__("BowInt", 2000)
         print(self.name + str(self.gold))
         self.leather=leather
         self.iron=iron
@@ -428,14 +438,16 @@ class BowInter(Bow):
 
 #bow avançado
 class BowAdva(Bow):
+    name = "BowAdva"
     leather=3
     iron=3
     gold=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,gold,SuccessRating):
+    def __init__(self,leather,iron,gold,SuccessRating, name):
         super().__init__("BowAdva", 10000)
         print(self.name + str(self.gold))
+        self.name = name
         self.leather=leather
         self.iron=iron
         self.gold=gold
@@ -445,14 +457,16 @@ class BowAdva(Bow):
 
 #arrows
 class Arrows(Bow):
+    name = "Arrows"
     wood=3
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,wood,iron,SuccessRating):
-        super().__init__("HelmetInter", 10000)
+    def __init__(self,wood,iron,SuccessRating, name):
+        super().__init__("Arrows", 1000)
         print(self.name + str(self.gold))
         self.wood=wood
+        self.name = name
         self.iron=iron
         self.SuccessRating=SuccessRating
     def Display(self):
