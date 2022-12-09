@@ -69,12 +69,13 @@ Relatório:
         fez Função do buy items and recipes,
         fez função do craft items,
         fez função de verify win,
-        fez função de level up,
+
         fez função de verify recipes,
         fez inventarios.
     
     Vitor:
         fez função selling items,
+        fez função de level up,
         fez class todas,
         fez dicionário com receitas,
         fez organização de código (idents e coments)
