@@ -1,5 +1,8 @@
 # MiniProjeto1
-#trabalho realizado por Vitor Daniel e João Carvalho
+
+#trabalho realizado por: 
+    Vitor Daniel, nº a22204782 
+    João Carvalho, nº a22204909
 
 1º commit - implementaçao de um esqueleto e ideia base (ainda por debater)
 2º commit - dar valor de venda a cada item (ideia geral) e contar receitas e recursos; decidir valores iniciais de recursos, receitas e dinheiro.
@@ -10,9 +13,6 @@
             adding and/or removing money, updating lists of items (and their amounts) and recipes"
 7º commit - completou se funcao de comprar recursos, funcao comprar receitas esta quase concluida (missing a couple ifs)
 
-#falta remover os recursos usados em cada craft
-#funcao de buy recipes esta incompleta
-#fazer um while que englobe as 3 main functions (buy resource and recipe, craft items and sell items) para atualizar cada dia
 
 4 recursos - iron, gold, leather, wood e gems (3 tipos)
 
@@ -21,8 +21,6 @@ starting amounts:
     wood - 5
     leather - 5
     iron - 5
-    gems - 0
-
 
 17 receitas totais
 
@@ -39,22 +37,22 @@ avançado - 5000
 
     armor:
         body armor:
-    iniciante - 650
-    intermedio - 1850
-    avançado - 2500
+iniciante - 650
+intermedio - 1850
+avançado - 2500
         helmet:
-    iniciante - 300
-    intermedio - 700
-    avançado - 1300
+iniciante - 300
+intermedio - 700
+avançado - 1300
         leggings:
-    iniciante - 350
-    intermedio - 750
-    avançado - 1400
+iniciante - 350
+intermedio - 750
+avançado - 1400
 
         shoes:
-    iniciantes - 200
-    intermedio - 600
-    avançado - 1300
+iniciantes - 200
+intermedio - 600
+avançado - 1300
 
     bows:
 iniciante - 1250
@@ -62,12 +60,23 @@ intermedio - 3000
 avançado - 6000
 arrows - 30 por 2250 gold
 
-"
-    cloak:
-basic cloak - 5000
 
-    gems:
-red - 10000
-green - 10000
-blue - 10000
-"
+Relatório:
+    
+    Embora cada um tenha ficado responsável por fazer cada funçao e/ou classes, ambos ajudamos mutuamente tanto na parte de programar como em correções (de erros no codigo, missing coments, má legibilidade devido a falta de identações, etc).
+
+    João :
+        fez Função do buy items and recipes,
+        fez função do craft items,
+        fez função de verify win,
+
+        fez função de verify recipes,
+        fez inventarios.
+    
+    Vitor:
+        fez função selling items,
+        fez função de level up,
+        fez class todas,
+        fez dicionário com receitas,
+        fez organização de código (idents e coments)
+        fez relatório.
