@@ -43,14 +43,18 @@ class Swords(Item):
 
 #espada avançada
 class SwordAdva(Swords):
+    name = "SwordAdva"
+    sell = 40000
     iron=4
     gold=2
     SuccessRating=10
     qt=0
-    def __init__(self,iron,gold,SuccessRating):
+    def __init__(self,iron,gold,SuccessRating, name, sell):
 
         super().__init__("SwordAdva", 10000)
         print(self.name + str(self.gold))
+        self.name = name
+        self.sell = sell
         self.iron=iron
         self.gold=gold
         self.SuccessRating=SuccessRating
@@ -302,13 +306,17 @@ class Leggins(Armors):
         
 #leggins iniciante
 class LegginsIni(Leggins):
+    name = "legginsIni"
+    sell = 1750
     leather=2
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating):
+    def __init__(self,leather,iron,SuccessRating, name, sell):
         super().__init__("LegginsIni", 10000)
         print(self.name + str(self.gold))
+        self.name = name
+        self.sell = sell
         self.leather=leather
         self.iron=iron
         self.SuccessRating=SuccessRating
@@ -358,13 +366,17 @@ class Shoes(Armors):
 
 #shoes iniciante
 class ShoesIni(Shoes):
+    name= "ShoesIni"
+    sell = 350
     leather=1
     iron=1
     SuccessRating=10
     qt=0
-    def __init__(self,leather,iron,SuccessRating):
+    def __init__(self,leather,iron,SuccessRating, name, sell):
         super().__init__("ShoesIni", 10000)
         print(self.name + str(self.gold))
+        self.name= name
+        self.sell = sell
         self.leather=leather
         self.iron=iron
         self.SuccessRating=SuccessRating
@@ -1277,7 +1289,7 @@ def CraftingItems():
 def SellingItems():
         #alterar para ter uma funcao para cada npc, provavelmente dentro de uma classe NPC 
     print("Its time to sell your awesome items")
-    npcRange = (1,2,3,4)
+    npcRange = (1, 2, 3, 4, 5, 6, 7, 8)
     npcNumber=random.choice(npcRange)
     
     if npcNumber == 1:
@@ -1332,6 +1344,40 @@ def SellingItems():
             BowIni.qt -= 1
             Arrows.qt -= 1
             Player.totalgold += BowIni.sell + Arrows.sell
+        else:
+            print("\n Heinz left without buying anything... \n")
+ 
+    elif npcNumber == 5:
+        print("Franz entered the shop. He wants a " + str(ShoesInter.name) + " and a " + str(LegginsInter.name) + ".")
+        if ShoesInter.qt >= 1 and LegginsInter.qt >= 1:
+            ShoesInter.qt -= 1
+            LegginsInter.qt -= 1
+            Player.totalgold += ShoesInter.sell + LegginsInter.sell
+        else:
+            print("\n Heinz left without buying anything... \n")
+
+    elif npcNumber == 6:
+        print("Your cousins son wants a " + str(SwordAdva.name)+ ".")
+        if SwordAdva.qt >= 1:
+            SwordAdva.qt -= 1
+            Player.totalgold += SwordAdva.sell
+        else:
+            print("\n Heinz left without buying anything... \n")
+
+    elif npcNumber == 7:
+        print("Clara demands a " + str(ChestplateIni.name) + " and a " + str(HelmetIni.name) + ".")
+        if ChestplateIni.qt >= 1 and HelmetIni.qt >= 1:
+            ChestplateIni.qt -= 1
+            HelmetIni.qt -= 1
+            Player.totalgold += ChestplateIni.sell + HelmetIni.sell
+        else:
+            print("\n Heinz left without buying anything... \n")
+
+    elif npcNumber == 8:
+        print("Anton asked for a " + str(Arrows.name) + ".")
+        if Arrows.qt >= 1:
+            Arrows.qt -= 1
+            Player.totalgold += Arrows.sell
         else:
             print("\n Heinz left without buying anything... \n")
 
