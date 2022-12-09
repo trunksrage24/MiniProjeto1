@@ -545,13 +545,6 @@ Recipestobuy= {
 #Receitas compradas pelo jogador são postas aqui para verificar quais dos recipes o jogador pode fazer
 Recipesbought={
 }
-#print de informação
-print("Day "+str(Player.day))
-print("Level "+str(Player.level))
-print("EXP "+str(Player.exp))
-print("Money: "+str(Player.totalgold))
-bought=False
-#######################CHAMAR FUNCTION QUANDO SE VENDE OS ITEMS NA FUNCTION SELLINGITEMS###########
 def VerifyWin():
     #verifica se o dinheiro do jogador chegou aos 100k,se sim então mostra que venceu
     if Player.totalgold==100000:
@@ -1137,10 +1130,10 @@ def CraftingItems():
                            else:
                             print("Not enough materials!")  
                     
-                    if Choose=="3":
-                        Choose="18"  
+                        if Choose=="3":
+                         Choose="18"  
                         
-                        if verifyrecipes(Choose)==True:   
+                         if verifyrecipes(Choose)==True:   
                             #shoesAdv
                            print(Recipes["ShoesAdva"])  
                            if Resources["leather"]>=ShoesAdva.leather and Resources["iron"]>=ShoesAdva.iron and Resources["gold"]>=ShoesAdva.gold: 
