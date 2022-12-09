@@ -1,10 +1,6 @@
 #projeto realizado por Vitor Daniel e João Carvalho
-
 import random  
-
-
 #objetivo alcançar 100k em lucros
-
 #classes para cada item:
     #3 espadas
     #3 escudos
@@ -12,8 +8,8 @@ import random
     #3 armaduras
     #3 leggins
     #3 sapatos
-
-#add amount variable in all class
+    #3 bow
+    #1 arrow
 class Item:
     def __init__(self, name, gold):
         self.name = name
@@ -432,21 +428,21 @@ class Arrows(Bow):
 InventoryToSell = [SwordIni, SwordInter, SwordAdva, ShieldIni, ShieldInter, ShieldAdva, HelmetIni, HelmetInter, HelmetAdva, 
                     ChestplatelIni, ChestplateInter, ChestplateAdva, LegginsIni, LegginsInter, 
                     LegginsAdva, ShoesIni, ShoesInter, ShoesAdva, BowIni, BowInter, BowAdva, Arrows]
-
+#Recursos com que o jogador começa
 Resources = {
     "wood" : 5,
     "leather" : 5,
     "iron" : 5,
     "gold" : 0  
 }
-
+#Preço dos recursos
 ResourcesPrice = {
     "wood" : 25,
     "leather" : 35,
     "iron" : 90,
     "gold" : 180
 }
-
+#Oque cada item precisa para ser "craftado"
 Recipes= {
     #Em comentario estão os preços totais do item em questão(ex:1wood->25$ + 1 leather->35$=60$)
     "SwordIni" : "You need: 1 wood and 1 leather.", #60
@@ -479,6 +475,7 @@ Recipes= {
     
     "Arrows" : "You need: 3 wood and 1 iron" # 165
 }
+#Dict para guardar recipes que ainda não foram comprados pelo jogador(sofre alterações ao longo do codigo)
 Recipestobuy= {
     #Beginner(1),Intermediate(2) or Advanced(3)?
         "1":["Sword Begginer",150],
@@ -511,8 +508,10 @@ Recipestobuy= {
 
         "22":["Arrows",150]
 }
+#Receitas compradas pelo jogador são postas aqui para verificar quais dos recipes o jogador pode fazer
 Recipesbought={
 }
+#print de informação
 print("Day "+str(Player.day))
 print("Level "+str(Player.level))
 print("EXP "+str(Player.exp))
@@ -520,19 +519,22 @@ print("Money: "+str(Player.totalgold))
 bought=False
 #######################CHAMAR FUNCTION QUANDO SE VENDE OS ITEMS NA FUNCTION SELLINGITEMS###########
 def VerifyWin():
+    #verifica se o dinheiro do jogador chegou aos 100k,se sim então mostra que venceu
     if Player.totalgold==100000:
         print("You Win!!"+str(Player.totalgold))
 def BuyResourceRecipes(bought):
     print("Buy Resources/Recipes")
     aux=True
     while aux:
-        
+        #mostra recursos que o jogador tem
         print("Wood: "+str(Resources["wood"]))
         print("Leather: "+str(Resources["leather"]))
         print("Iron: "+str(Resources["iron"]))
         print("gold: "+str(Resources["gold"]))
         n1=input("Do you wish to buy Wood(1) for "+str(ResourcesPrice["wood"])+"$,Leather(2)"+str(ResourcesPrice["leather"])+"$, Iron(3)"+str(ResourcesPrice["iron"])+"$, Gold(4)"+str(ResourcesPrice["gold"])+"$,Recipes(5) or leave(6)? ")
         if n1=="1":
+            #Pede a quantidade ao jogador e multiplica pelo preço, subtraindo ao dinheiro do jogador
+            #caso não tenho a quantidade suficiente então apenas mostra que o jogador não tem dinheiro (o mesmo para os restantes recursos)
             ResourcesAmount=int(input("How much Wood do you wish to buy for "+str(ResourcesPrice["wood"])+"$? "))   
             ResourcesQuantity=ResourcesAmount
             ResourcesAmount=ResourcesAmount*int(ResourcesPrice["wood"])
@@ -583,15 +585,18 @@ def BuyResourceRecipes(bought):
          if n1=="5":
             print("Here recipes") 
             print("Begginer for 150$, Intermediate for 1000$ and Advanced for 3000$!! WE DONT GIVE DISCOUNTS!")  
-            #puxar recipes aqui
+            #escolhe 3 items random do dict que guardar as receitas que ainda não foram compradas.
             if Player.auxvar==False:
                 item1 = random.choice(list(Recipestobuy.items()))
                 item2 = random.choice(list(Recipestobuy.items()))
                 item3 = random.choice(list(Recipestobuy.items()))
             print("Recipes to buy: "+str(item1[1][0])+"(1),"+str(item2[1][0])+"(2),"+str(item3[1][0])+"(3) or leave(4)")
             choice=input("Which do you wish to buy?")
+            #var global para não deixar o jogador comprar varias receitas
             Player.auxvar=True
             if choice=="1":
+                #retira a receita comprada do dict "Recipestobuy" e mete no dict "Recipesbought", retira dinheiro do jogador e mostra repetivas ações
+                #o mesmo acontece para os restantes
                 Recipesbought[item1[0]] = item1[1]
                 Player.totalgold=Player.totalgold-item1[1][1]
                 print("Bought: "+str(item1[1][0]))
@@ -612,13 +617,16 @@ def BuyResourceRecipes(bought):
                 print("Current Wealth: "+str(Player.totalgold))
                 Recipestobuy.pop(item3[0])           
                 bought=True 
+            #baseado numa variavel global verifica se o jogador já comprou um item, se sim diz que já comprou o limite receitas para aquele dia
         elif bought==True:
-                print("Already bought a recipe! Therefore you cant buy anymore today!")             
+                print("Already bought a recipe! Therefore you cant buy anymore today!")   
+          #para o while                
         if n1=="6":
             aux = False
 
 BuyResourceRecipes(bought)
 def levelup():
+    #função para aumentar o nivel se o exp for maior que o respetivo valor
     if Player.exp>=50:
         Player.level=Player.level+1
         print("Level up!")
@@ -651,6 +659,8 @@ def levelup():
         print("Level up!")    
 
 def verifyrecipes(choose):
+    #verifica se o item que o jogador escolheu fazer está ou não nas receitas compradas, se sim procede com o craft, se não diz que
+    #não tem o recipe comprado
     if choose in Recipesbought:
         print("Crafting!!")
         choose=True
@@ -666,15 +676,19 @@ def CraftingItems():
         print("Choose the type of item you want to craft.")
         print("Select Sword(1), Shield(2), Armor(3), Bow(4) or Leave(5)")
         answer = input()
+        #escolhe o item que o jogador escolheu
         if answer == "1":
                 Choose=input("Which Sword do you wish to create, Beginner(1),Intermediate(2) or Advanced(3)?")
+                #random de 1 a 10 ,multiplica isso pelo lv do jogador, verifica se o jogador tem o recipe, se sim continua
+                #mostra oque é necessario para o craft
                 auxrand=random.randint(1,10)
                 craftingattempt=Player.level*auxrand
                 if Choose=="1":
                  if verifyrecipes(Choose)==True:  #AQUI
                     #SwordIni
                   print(Recipes["SwordIni"])
-                 
+             #verifica se o jogador tem os materiais necessarios para o craft, se sim remove os recursos do jogador, adiciona exp 
+             #e chama função levelup para verificar se o jogador passou de nivel
                   if Resources["wood"]>=SwordIni.wood and Resources["leather"]>=SwordIni.leather:
                     if craftingattempt >= SwordIni.SuccessRating:
                         print("Done and Done!!! "+str(craftingattempt))
@@ -684,14 +698,16 @@ def CraftingItems():
                         #dar exp ao jogador
                         Player.exp=Player.exp+10
                         levelup()
+               #se não tiver conseguido fazer o craft então apenas remove os recursos         
                     elif craftingattempt < SwordIni.SuccessRating:  
                         print("Not Done! "+str(craftingattempt)) 
                         #remover os items do inventario
                         Resources["wood"]=Resources["wood"]-SwordIni.wood
                         Resources["leather"]=Resources["leather"]-SwordIni.leather
+                #caso não tenha os recursos mostra que não tem os materiais necessarios      
                   else:
                     print("Not enough materials!")      
-                               
+                #MESMO SISTEMA PARA O RESTANTE CODIGO               
                 if Choose=="2":
                  if verifyrecipes(Choose)==True:  
                     #SwordInt
@@ -1183,11 +1199,13 @@ def CraftingItems():
                         Resources["iron"]=Resources["iron"]-Arrows.iron
                         Resources["wood"]=Resources["wood"]-Arrows.wood   
                    else:
-                    print("Not enough materials!")       
+                    print("Not enough materials!") 
+        #parar o While                  
         elif answer == "5":
                         aux = False
+        #caso o jogador escreva um numero que não seja um dos pedidos
         else:
-            print("Not found!")                
+            print("Command not found!")                
 
 CraftingItems()
 
@@ -1374,4 +1392,3 @@ def SellingItems():
         pass
 
 SellingItems()
-
