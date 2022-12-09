@@ -512,9 +512,6 @@ Recipestobuy= {
         "22":["Arrows",150]
 }
 Recipesbought={
-        "1":["Sword Begginer",150],
-        "2":["Sword Intermediate",1000],
-        "3":["Sword Advanced",3000],
 }
 print("Day "+str(Player.day))
 print("Level "+str(Player.level))
